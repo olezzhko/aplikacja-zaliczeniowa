@@ -182,7 +182,7 @@ public class FrontEnd extends Application {
 		object_Back.returnBackBackground();
 		
 		Image img = new Image("file:./Images/Backgrounds/"+background+".jpg");
-		ImageView pozadinaIW = new ImageView(img);
+		ImageView backgroundIW = new ImageView(img);
 		
 		
 		try{
@@ -237,7 +237,7 @@ public class FrontEnd extends Application {
 			lastnameL.setStyle("-fx-text-fill: white");
 			lastnameTF = new TextField();
 			
-			Label ssnL = new Label("SSN*");
+			Label ssnL = new Label("Pesel*");
 			ssnL.setStyle("-fx-text-fill: white");
 			ssnTF = new TextField();
 			
@@ -308,7 +308,7 @@ public class FrontEnd extends Application {
 			lastnameTF2 = new TextField();
 			lastnameTF2.setDisable(true);
 			
-			ssnL2 = new Label("SSN*");
+			ssnL2 = new Label("Pesel*");
 			ssnL2.setStyle("-fx-text-fill: white");
 			ssnL2.setDisable(true);
 			ssnTF2 = new TextField();
@@ -388,7 +388,7 @@ public class FrontEnd extends Application {
 			lastnameTF3.setDisable(true);
 			lastnameTF3.setEditable(false);
 			
-			ssnL3 = new Label("SSN*");
+			ssnL3 = new Label("Pesel*");
 			ssnL3.setStyle("-fx-text-fill: white");
 			ssnL3.setDisable(true);
 			ssnTF3 = new TextField();
@@ -447,7 +447,7 @@ public class FrontEnd extends Application {
 			idL4.setStyle("-fx-text-fill: white");
 			idTF4 = new TextField();
 
-			searchButton4 = new Button("Pretraži");
+			searchButton4 = new Button("Search");
 			
 			firstnameL4 = new Label("First name*");
 			firstnameL4.setStyle("-fx-text-fill: white");
@@ -463,7 +463,7 @@ public class FrontEnd extends Application {
 			lastnameTF4.setDisable(true);
 			lastnameTF4.setEditable(false);
 			
-			ssnL4 = new Label("SSN*");
+			ssnL4 = new Label("Pesel*");
 			ssnL4.setStyle("-fx-text-fill: white");
 			ssnL4.setDisable(true);
 			ssnTF4 = new TextField();
@@ -542,10 +542,10 @@ public class FrontEnd extends Application {
 	        last_nameColumn.setCellValueFactory(
 	                new PropertyValueFactory<>("last_name"));
 	 
-	        TableColumn ssnColumn = new TableColumn("SSN");
+	        TableColumn ssnColumn = new TableColumn("Pesel");
 	        ssnColumn.setMinWidth(115);
 	        ssnColumn.setCellValueFactory(
-	                new PropertyValueFactory<>("ssn"));
+	                new PropertyValueFactory<>("pesel"));
 	        
 	        TableColumn adressColumn = new TableColumn("Adress");
 	        adressColumn.setMinWidth(80);
@@ -1427,17 +1427,17 @@ public class FrontEnd extends Application {
 			background1Button.setOnAction( e -> {
 				background="background1";
 				object_Back.changeBackground();
-				pozadinaIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
+				backgroundIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
 			});
 			background2Button.setOnAction( e -> {
 				background="background2";
 				object_Back.changeBackground();
-				pozadinaIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
+				backgroundIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
 			});
 			background3Button.setOnAction( e -> {
 				background="background3";
 				object_Back.changeBackground();
-				pozadinaIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
+				backgroundIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
 			});
 			
 			
@@ -1501,7 +1501,7 @@ public class FrontEnd extends Application {
 			
 
 			StackPane main_sceneContainer = new StackPane();
-			main_sceneContainer.getChildren().addAll(pozadinaIW,glavniKontejner);
+			main_sceneContainer.getChildren().addAll(backgroundIW,glavniKontejner);
 			
 //Login Scene and Stage --------------------------------------------------------------------------------------------------------------------------------------------------
 

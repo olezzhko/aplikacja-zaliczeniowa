@@ -28,7 +28,7 @@ public class BackEnd {
         try {
         	Class.forName("com.mysql.jdbc.Driver");
         	
-        	String db_url = "jdbc:mysql://localhost/kovacevi_videoklub";
+        	String db_url = "jdbc:mysql://localhost/bd_vk";
         	String user = "root";
         	String password = "";
         	
@@ -62,9 +62,9 @@ public class BackEnd {
 	
 	public void addUser(){
 		
-		String id_korisnika = makingUserID();
+		String id_klienta = makingUserID();
 
-		String sql = "INSERT INTO Korisnik (ime,id_korisnika,prezime,jmbg,adresa,broj_telefona,email) VALUES('"+FrontEnd.firstnameTF.getText()+"','"+id_korisnika+"','"+FrontEnd.lastnameTF.getText()+"','"+FrontEnd.ssnTF.getText()+"','"+FrontEnd.adressTF.getText()+"','"+FrontEnd.phone_numberTF.getText()+"','"+FrontEnd.emailTF.getText()+"')";
+		String sql = "INSERT INTO klient (imie,id_klienta,nazwisko,pesel,adres,telefon,email) VALUES('"+FrontEnd.firstnameTF.getText()+"','"+id_klienta+"','"+FrontEnd.lastnameTF.getText()+"','"+FrontEnd.ssnTF.getText()+"','"+FrontEnd.adressTF.getText()+"','"+FrontEnd.phone_numberTF.getText()+"','"+FrontEnd.emailTF.getText()+"')";
      
         
 		if( FrontEnd.firstnameTF.getText().equals("") || FrontEnd.lastnameTF.getText().equals("") || FrontEnd.ssnTF.getText().equals("") || FrontEnd.adressTF.getText().equals("") || FrontEnd.phone_numberTF.getText().equals("") ){
@@ -86,23 +86,23 @@ public class BackEnd {
             }
 			
 	        try {
-	        		String sqlUzimiID = "SELECT * FROM Korisnik WHERE jmbg='" + FrontEnd.ssnTF.getText() + "';";
+	        		String sqlUzimiID = "SELECT * FROM klient WHERE pesel='" + FrontEnd.ssnTF.getText() + "';";
 	        	
 	                Connection conn = this.connectionWithDatabase();
 	                Statement stmt  = conn.createStatement();
 	            	ResultSet rs = stmt.executeQuery(sqlUzimiID);
 	            	
-	            	String idKorisnika = "";
-	            	String imeiprezime = "";
+	            	String idklienta = "";
+	            	String imienazwisko = "";
 	            	if(rs.next()){
-	            	idKorisnika = rs.getString("id_korisnika");
-	            	imeiprezime = rs.getString("ime") + " " + rs.getString("prezime");
+	            	idklienta = rs.getString("id_klienta");
+	            	imienazwisko = rs.getString("imie") + " " + rs.getString("nazwisko");
 	            	}
 	            	
 	        		Alert alert = new Alert(AlertType.INFORMATION);
 	        		alert.setTitle("Notification");
 	        		alert.setHeaderText(null);
-	        		alert.setContentText("You have successfully added a new user " + imeiprezime +".\nHis ID is: "  +idKorisnika);
+	        		alert.setContentText("You have successfully added a new user " + imienazwisko +".\nHis ID is: "  +idklienta);
 	        		alert.showAndWait();
 	        		
 	        		FrontEnd.firstnameTF.clear();
@@ -123,7 +123,7 @@ public class BackEnd {
 //Navigation User.Edit_user --------------------------------------------------------------------------------------------------------------------	
 	public void allowUserEdit(){
 		
-		String sql ="SELECT * FROM Korisnik WHERE id_korisnika='"+FrontEnd.idTF2.getText()+"';";
+		String sql ="SELECT * FROM klient WHERE id_klienta='"+FrontEnd.idTF2.getText()+"';";
 		
         try {
             Connection conn = this.connectionWithDatabase();
@@ -152,7 +152,7 @@ public class BackEnd {
     				
         	FrontEnd.firstnameTF2.setText(rs.getString("ime"));
         	FrontEnd.lastnameTF2.setText(rs.getString("prezime"));
-        	FrontEnd.ssnTF2.setText(rs.getString("jmbg"));
+        	FrontEnd.ssnTF2.setText(rs.getString("pesel"));
         	FrontEnd.adressTF2.setText(rs.getString("adresa"));
         	FrontEnd.phone_numberTF2.setText(rs.getString("broj_telefona"));
         	FrontEnd.emailTF2.setText(rs.getString("email"));
@@ -266,7 +266,7 @@ public class BackEnd {
 	
 	public void editUser(){
 		
-		String sql = "UPDATE Korisnik SET ime='"+FrontEnd.firstnameTF2.getText()+"',prezime='"+FrontEnd.lastnameTF2.getText()+"',jmbg="+FrontEnd.ssnTF2.getText()+",adresa='"+FrontEnd.adressTF2.getText()+"',broj_telefona="+FrontEnd.phone_numberTF2.getText()+",email='"+FrontEnd.emailTF2.getText()+"' WHERE id_korisnika='"+FrontEnd.idTF2.getText()+"';";
+		String sql = "UPDATE klient SET ime='"+FrontEnd.firstnameTF2.getText()+"',prezime='"+FrontEnd.lastnameTF2.getText()+"',pesel="+FrontEnd.ssnTF2.getText()+",adresa='"+FrontEnd.adressTF2.getText()+"',broj_telefona="+FrontEnd.phone_numberTF2.getText()+",email='"+FrontEnd.emailTF2.getText()+"' WHERE id_klienta='"+FrontEnd.idTF2.getText()+"';";
 
 		if( FrontEnd.firstnameTF2.getText().equals("") || FrontEnd.lastnameTF2.getText().equals("") || FrontEnd.ssnTF2.getText().equals("") || FrontEnd.adressTF2.getText().equals("") || FrontEnd.phone_numberTF2.equals("") ){
 			Alert alert = new Alert(AlertType.WARNING);
@@ -329,7 +329,7 @@ public class BackEnd {
 //Navigation Users.Show_user --------------------------------------------------------------------------------------------------------------------	
 	public void showUser(){
 		
-		String sql ="SELECT * FROM Korisnik WHERE id_korisnika='"+FrontEnd.idTF3.getText()+"';";
+		String sql ="SELECT * FROM klient WHERE id_klienta='"+FrontEnd.idTF3.getText()+"';";
 		
         try {
                 Connection conn = this.connectionWithDatabase();
@@ -353,7 +353,7 @@ public class BackEnd {
             		
                 	FrontEnd.firstnameTF3.setText(rs.getString("ime"));
                 	FrontEnd.lastnameTF3.setText(rs.getString("prezime"));
-                	FrontEnd.ssnTF3.setText(rs.getString("jmbg"));
+                	FrontEnd.ssnTF3.setText(rs.getString("pesel"));
                 	FrontEnd.adressTF3.setText(rs.getString("adresa"));
                 	FrontEnd.phone_numberTF3.setText(rs.getString("broj_telefona"));
                 	FrontEnd.emailTF3.setText(rs.getString("email"));
@@ -399,7 +399,7 @@ public class BackEnd {
 //Navigation Users.Delete_user --------------------------------------------------------------------------------------------------------------------	
 	public void allow_deleting_user(){
 		
-		String sql ="SELECT * FROM Korisnik WHERE id_korisnika='"+FrontEnd.idTF4.getText()+"';";
+		String sql ="SELECT * FROM klient WHERE id_klienta='"+FrontEnd.idTF4.getText()+"';";
 		
         try (
                 Connection conn = this.connectionWithDatabase();
@@ -429,7 +429,7 @@ public class BackEnd {
 
         	FrontEnd.firstnameTF4.setText(rs.getString("ime"));
         	FrontEnd.lastnameTF4.setText(rs.getString("prezime"));
-        	FrontEnd.ssnTF4.setText(rs.getString("jmbg"));
+        	FrontEnd.ssnTF4.setText(rs.getString("pesel"));
         	FrontEnd.adressTF4.setText(rs.getString("adresa"));
         	FrontEnd.phone_numberTF4.setText(rs.getString("broj_telefona"));
         	FrontEnd.emailTF4.setText(rs.getString("email"));
@@ -542,7 +542,7 @@ public class BackEnd {
 	
 	public void finalDeleting(){
 		
-		String sql ="DELETE FROM Korisnik WHERE id_korisnika='"+FrontEnd.idTF4.getText()+"';";
+		String sql ="DELETE FROM klient WHERE id_klienta='"+FrontEnd.idTF4.getText()+"';";
 		
         try {
                 Connection conn = this.connectionWithDatabase();
@@ -604,7 +604,7 @@ public class BackEnd {
 	
 //Navigation User.Show_all_users --------------------------------------------------------------------------------------------------------------------	
     public void showAllUsers(){
-        String sql = "SELECT * FROM Korisnik;";
+        String sql = "SELECT * FROM klient;";
         
         try (Connection conn = this.connectionWithDatabase();
              Statement stmt  = conn.createStatement();
@@ -613,7 +613,7 @@ public class BackEnd {
         	FrontEnd.usersData.clear();
         	
             while (rs.next()) {
-            	FrontEnd.usersData.add(new User( String.valueOf(rs.getString("id_korisnika")), rs.getString("ime"), rs.getString("prezime"), rs.getString("jmbg"), rs.getString("adresa"), rs.getString("broj_telefona"), rs.getString("email") ));
+            	FrontEnd.usersData.add(new User( String.valueOf(rs.getString("id_klienta")), rs.getString("imie"), rs.getString("nazwisko"), rs.getString("pesel"), rs.getString("adres"), rs.getString("telefon"), rs.getString("email") ));
             }
             
         } catch (SQLException e) {
@@ -629,7 +629,7 @@ public class BackEnd {
 //Navigation Movies.Add_movie --------------------------------------------------------------------------------------------------------------------
 	public void dodajFilm(){
 
-	String sql = "INSERT INTO Film (naslov,zanr,opis,godina_izdanja,jezik,ocena_imdb,trajanje_minuti,glavni_glumci) VALUES('"+FrontEnd.movieTitleTF.getText()+"','"+FrontEnd.genreTF.getText()+"','"+FrontEnd.descriptionTF.getText()+"','"+FrontEnd.release_yearTF.getText()+"','"+FrontEnd.languageTF.getText()+"',"+FrontEnd.rating_imdbTF.getText()+",'"+FrontEnd.duration_minutesTF.getText()+"','"+FrontEnd.main_actorsTF.getText()+"')";
+	String sql = "INSERT INTO Film (title,zanr,opis,rok,jezyk,ocena_imdb,czas_trwania,obsada) VALUES('"+FrontEnd.movieTitleTF.getText()+"','"+FrontEnd.genreTF.getText()+"','"+FrontEnd.descriptionTF.getText()+"','"+FrontEnd.release_yearTF.getText()+"','"+FrontEnd.languageTF.getText()+"',"+FrontEnd.rating_imdbTF.getText()+",'"+FrontEnd.duration_minutesTF.getText()+"','"+FrontEnd.main_actorsTF.getText()+"')";
      
         
 		if( FrontEnd.movieTitleTF.getText().equals("") || FrontEnd.genreTF.getText().equals("") || FrontEnd.release_yearTF.getText().equals("") || FrontEnd.rating_imdbTF.getText().equals("") || FrontEnd.duration_minutesTF.getText().equals("") ){
@@ -727,16 +727,16 @@ public class BackEnd {
 				sql = sql + "id="+FrontEnd.find_idTF.getText()+" AND ";
 			}
 			if(FrontEnd.find_titleCB.isSelected()==true){
-				sql = sql +"naslov LIKE '%"+FrontEnd.find_titleTF.getText()+"%'"+" AND ";
+				sql = sql +"title LIKE '%"+FrontEnd.find_titleTF.getText()+"%'"+" AND ";
 			}
 			if(FrontEnd.find_genreCB.isSelected()==true){
 				sql = sql +"zanr LIKE '%"+FrontEnd.find_genreTF.getText()+"%'"+" AND ";
 			}
 			if(FrontEnd.find_release_yearCB.isSelected()==true){
-				sql = sql +"godina_izdanja="+FrontEnd.find_release_yearTF.getText()+" AND ";
+				sql = sql +"rok="+FrontEnd.find_release_yearTF.getText()+" AND ";
 			}
 			if(FrontEnd.find_main_actorCB.isSelected()==true){
-				sql = sql +"glavni_glumci LIKE '%"+FrontEnd.find_main_actorTF.getText()+"%'"+" AND ";
+				sql = sql +"obsada LIKE '%"+FrontEnd.find_main_actorTF.getText()+"%'"+" AND ";
 			}
 			
 			
@@ -752,7 +752,7 @@ public class BackEnd {
 	        	
 	            while (rs.next()) {
 
-	            	FrontEnd.movieData2.add(new Movie( String.valueOf(rs.getInt("id")), rs.getString("naslov"), rs.getString("zanr"), rs.getString("opis"), String.valueOf(rs.getInt("godina_izdanja")), rs.getString("jezik"), String.valueOf(rs.getDouble("ocena_imdb")), rs.getString("trajanje_minuti"), rs.getString("glavni_glumci"), rs.getString("dostupno"), String.valueOf(rs.getInt("poslednji_iznajmio")), rs.getString("poslednji_datum_iznajmljivanja")  ));
+	            	FrontEnd.movieData2.add(new Movie( String.valueOf(rs.getInt("id")), rs.getString("title"), rs.getString("zanr"), rs.getString("opis"), String.valueOf(rs.getInt("rok")), rs.getString("jezyk"), String.valueOf(rs.getDouble("ocena_imdb")), rs.getString("czas_trwania"), rs.getString("obsada"), rs.getString("dost"), String.valueOf(rs.getInt("ostatni_wyn")), rs.getString("ostatnia_data_wyn")  ));
 
 	            }
 	                
@@ -800,14 +800,14 @@ public class BackEnd {
     		FrontEnd.edit_deleteButton.setDisable(false);
     		
 
-        	FrontEnd.movieTitleTF2.setText(rs.getString("naslov"));
+        	FrontEnd.movieTitleTF2.setText(rs.getString("title"));
         	FrontEnd.genreTF2.setText(rs.getString("zanr"));
         	FrontEnd.descriptionTF2.setText(rs.getString("opis"));
-        	FrontEnd.release_yearTF2.setText(rs.getString("godina_izdanja"));
-        	FrontEnd.languageTF2.setText(rs.getString("jezik"));
+        	FrontEnd.release_yearTF2.setText(rs.getString("rok"));
+        	FrontEnd.languageTF2.setText(rs.getString("jezyk"));
         	FrontEnd.rating_imdbTF2.setText(String.valueOf(rs.getDouble("ocena_imdb")));
-        	FrontEnd.duration_minutesTF2.setText(rs.getString("trajanje_minuti"));
-        	FrontEnd.main_actorsTF2.setText(rs.getString("glavni_glumci"));
+        	FrontEnd.duration_minutesTF2.setText(rs.getString("czas_trwania"));
+        	FrontEnd.main_actorsTF2.setText(rs.getString("obsada"));
         	
         	FrontEnd.edit_change_movieButton.setDisable(false);
         	FrontEnd.edit_fDugme2.setDisable(false);
@@ -940,7 +940,7 @@ public class BackEnd {
 	
 	public void finalEditMovie(){
 		
-		String sql = "UPDATE Film SET naslov='"+FrontEnd.movieTitleTF2.getText()+"',zanr='"+FrontEnd.genreTF2.getText()+"',opis='"+FrontEnd.descriptionTF2.getText()+"',godina_izdanja="+FrontEnd.release_yearTF2.getText()+",jezik='"+FrontEnd.languageTF2.getText()+"',ocena_imdb="+FrontEnd.rating_imdbTF2.getText()+",trajanje_minuti="+FrontEnd.duration_minutesTF2.getText()+",glavni_glumci='"+FrontEnd.main_actorsTF2.getText()+"' WHERE id="+FrontEnd.edit_idTF2.getText()+";";
+		String sql = "UPDATE Film SET title='"+FrontEnd.movieTitleTF2.getText()+"',zanr='"+FrontEnd.genreTF2.getText()+"',opis='"+FrontEnd.descriptionTF2.getText()+"',rok="+FrontEnd.release_yearTF2.getText()+",jezyk='"+FrontEnd.languageTF2.getText()+"',ocena_imdb="+FrontEnd.rating_imdbTF2.getText()+",czas_trwania="+FrontEnd.duration_minutesTF2.getText()+",obsada='"+FrontEnd.main_actorsTF2.getText()+"' WHERE id="+FrontEnd.edit_idTF2.getText()+";";
 
 		if( FrontEnd.movieTitleTF2.getText().equals("") || FrontEnd.genreTF2.getText().equals("") || FrontEnd.release_yearTF2.getText().equals("") || FrontEnd.rating_imdbTF2.getText().equals("") || FrontEnd.duration_minutesTF2.equals("") ){
 			Alert alert = new Alert(AlertType.WARNING);
@@ -1079,7 +1079,7 @@ public class BackEnd {
         	
             while (rs.next()) {
 
-            	FrontEnd.movieData3.add(new Movie( String.valueOf(rs.getInt("id")), rs.getString("naslov"), rs.getString("zanr"), rs.getString("opis"), rs.getString("godina_izdanja"), rs.getString("jezik"), String.valueOf(rs.getDouble("ocena_imdb")), rs.getString("trajanje_minuti"), rs.getString("glavni_glumci"), rs.getString("dostupno"), rs.getString("poslednji_iznajmio"), rs.getString("poslednji_datum_iznajmljivanja")  ));
+            	FrontEnd.movieData3.add(new Movie( String.valueOf(rs.getInt("id")), rs.getString("title"), rs.getString("zanr"), rs.getString("opis"), rs.getString("rok"), rs.getString("jezyk"), String.valueOf(rs.getDouble("ocena_imdb")), rs.getString("czas_trwania"), rs.getString("obsada"), rs.getString("dost"), rs.getString("ostatni_wyn"), rs.getString("ostatnia_data_wyn")  ));
 
             }
                 
@@ -1104,7 +1104,7 @@ public class BackEnd {
             	ResultSet rs = stmt.executeQuery(sql);
             	
             	while(rs.next()){
-            		if(rs.getString("rezervisano").equals("da")){
+            		if(rs.getString("rezerwacja").equals("tak")){
             			rezultat = true;
             		}
             	}
@@ -1127,7 +1127,7 @@ public class BackEnd {
         	ResultSet rs = stmt.executeQuery(sql);
         	
         	while(rs.next()){
-        		if(FrontEnd.rentalMovie_id_userTF.getText().equals(rs.getString("rezervisao_id"))){
+        		if(FrontEnd.rentalMovie_id_userTF.getText().equals(rs.getString("rezerwacja_id"))){
         			rezultat = true;
         		}
         	}
@@ -1148,15 +1148,15 @@ public class BackEnd {
 			
 			String sql1 = "SELECT id FROM Film;";
 			
-			String sql2 = "SELECT dostupno FROM Film WHERE id="+FrontEnd.rentalMovie_id_movieTF.getText()+";";
+			String sql2 = "SELECT dost FROM Film WHERE id="+FrontEnd.rentalMovie_id_movieTF.getText()+";";
 			
-			String sql3 = "UPDATE Film SET dostupno='ne', rezervisano='ne', poslednji_iznajmio='"+FrontEnd.rentalMovie_id_userTF.getText() + "', poslednji_datum_iznajmljivanja='"+ datumIznajmljivanja + "' WHERE id="+FrontEnd.rentalMovie_id_movieTF.getText()+";";
+			String sql3 = "UPDATE Film SET dost='nie', rezerwacja='nie', ostatni_wyn='"+FrontEnd.rentalMovie_id_userTF.getText() + "', ostatnia_data_wyn='"+ datumIznajmljivanja + "' WHERE id="+FrontEnd.rentalMovie_id_movieTF.getText()+";";
 			
-			String sql4 = "SELECT id_korisnika FROM Korisnik;";
+			String sql4 = "SELECT id_klienta FROM klient;";
 			
 			String idFilm = "";
-			String dostupno = "";
-			String idKorisnik = "";
+			String dost = "";
+			String idklient = "";
 
 			
 
@@ -1203,11 +1203,11 @@ public class BackEnd {
 		                        ){
 		                        
 		                	while (rs4.next()) {
-		                		String a = String.valueOf(rs4.getString("id_korisnika"));
+		                		String a = String.valueOf(rs4.getString("id_klienta"));
 		                		
 		                		 if( a.equals(FrontEnd.rentalMovie_id_userTF.getText() ) ){
 		                			 
-		                			 idKorisnik = a;
+		                			 idklient = a;
 		                		 }
 		
 		        	}
@@ -1219,7 +1219,7 @@ public class BackEnd {
 		                
 		                
 		                
-		                if(FrontEnd.rentalMovie_id_movieTF.getText().equals(idFilm) && FrontEnd.rentalMovie_id_userTF.getText().equals(idKorisnik)){
+		                if(FrontEnd.rentalMovie_id_movieTF.getText().equals(idFilm) && FrontEnd.rentalMovie_id_userTF.getText().equals(idklient)){
 		                	
 
 	    			        try (   Connection conn2 = this.connectionWithDatabase();
@@ -1228,8 +1228,8 @@ public class BackEnd {
 	    			                ){
 	    			        	
 	    			        while(rs2.next()){
-		    			        	if(rs2.getString("dostupno").equals("da")){
-		    			        		dostupno = "da"; 			        		
+		    			        	if(rs2.getString("dost").equals("tak")){
+		    			        		dost = "tak"; 			        		
 		    			        	}else{
 		    			        		
 		    			    			Alert alert = new Alert(AlertType.WARNING);
@@ -1263,7 +1263,7 @@ public class BackEnd {
 	    		 }
 		                
 		                
-		                if(dostupno.equals("da")){
+		                if(dost.equals("tak")){
 		                	
 		                	
 		                	
@@ -1324,13 +1324,13 @@ public class BackEnd {
 //Navigation Rental.Return_back_movie --------------------------------------------------------------------------------------------------------------------	
 	public void returnBackMovie() throws ParseException{
 		
-		String sql = "UPDATE Film SET dostupno= 'da' WHERE id="+FrontEnd.returnBackMovie_idMovieTF.getText()+";";
+		String sql = "UPDATE Film SET dost= 'tak' WHERE id="+FrontEnd.returnBackMovie_idMovieTF.getText()+";";
 		
 		String sql2 = "SELECT id FROM Film;";
 		
-		String sql3 = "SELECT dostupno FROM Film WHERE id="+FrontEnd.returnBackMovie_idMovieTF.getText()+";";
+		String sql3 = "SELECT dost FROM Film WHERE id="+FrontEnd.returnBackMovie_idMovieTF.getText()+";";
 		
-		String sql4 = "SELECT poslednji_datum_iznajmljivanja FROM Film WHERE id="+FrontEnd.returnBackMovie_idMovieTF.getText()+";";
+		String sql4 = "SELECT ostatnia_data_wyn FROM Film WHERE id="+FrontEnd.returnBackMovie_idMovieTF.getText()+";";
 		
 		String movieID = "";
 		String availbale = "";
@@ -1388,12 +1388,12 @@ public class BackEnd {
 		        			String a="";
 		        			
 		        			while(rs3.next()){
-		        			a = rs3.getString("dostupno");
+		        			a = rs3.getString("dost");
 		        			}
 	            		 
-	            		 if( a.equals("ne") ){
+	            		 if( a.equals("nie") ){
 	            			 
-	            			 availbale = "ne";
+	            			 availbale = "tak";
 	            			 
 	            			 
 	            		 }else{
@@ -1425,7 +1425,7 @@ public class BackEnd {
 			
 		}
 		
-		if(availbale.equals("ne")){
+		if(availbale.equals("nie")){
 			
 			
 	        try (
@@ -1436,7 +1436,7 @@ public class BackEnd {
 	        
 	     //Check is movie returned on time,if movie is not returned on time then calculating how much days is overdated them calculate how much money user must pay for overdate   	
 	        	while(rs.next()){
-	        	dateOfRentalDatabase = rs.getString("poslednji_datum_iznajmljivanja");
+	        	dateOfRentalDatabase = rs.getString("ostatnia_data_wyn");
 	        	}
 	        	
 		    	SimpleDateFormat formatDatuma = new SimpleDateFormat("dd MM yyyy");
@@ -1495,7 +1495,7 @@ public class BackEnd {
 //Navigation Rental.List_of_rental_movies --------------------------------------------------------------------------------------------------------------------	
 	public void showRentaledMovies(){
 		
-		String sql = "SELECT * FROM Film WHERE dostupno='ne';";
+		String sql = "SELECT * FROM Film WHERE dost='nie';";
 		
         try (
                 Connection conn = this.connectionWithDatabase();
@@ -1507,7 +1507,7 @@ public class BackEnd {
         	
             while (rs.next()) {
 
-            	FrontEnd.movieData4.add(new Movie( String.valueOf(rs.getInt("id")), rs.getString("naslov"), rs.getString("zanr"), rs.getString("opis"), String.valueOf(rs.getInt("godina_izdanja")), rs.getString("jezik"), String.valueOf(rs.getDouble("ocena_imdb")), rs.getString("trajanje_minuti"), rs.getString("glavni_glumci"), rs.getString("dostupno"), String.valueOf(rs.getString("poslednji_iznajmio")), rs.getString("poslednji_datum_iznajmljivanja")  ));
+            	FrontEnd.movieData4.add(new Movie( String.valueOf(rs.getInt("id")), rs.getString("title"), rs.getString("zanr"), rs.getString("opis"), String.valueOf(rs.getInt("rok")), rs.getString("jezyk"), String.valueOf(rs.getDouble("ocena_imdb")), rs.getString("czas_trwania"), rs.getString("obsada"), rs.getString("dost"), String.valueOf(rs.getString("ostatni_wyn")), rs.getString("ostatnia_data_wyn")  ));
 
             }
                 
@@ -1525,8 +1525,8 @@ public class BackEnd {
 //Navigation Properties.Security_code --------------------------------------------------------------------------------------------------------------------	
 	public void changeSecurityCode(){
 		
-		String sql = "SELECT kod FROM SigurnosniKod WHERE id=1;";
-		String sql2 =  "UPDATE SigurnosniKod SET kod='"+FrontEnd.properties_newPW.getText()+"' WHERE id=1;";
+		String sql = "SELECT kod FROM security WHERE id=1;";
+		String sql2 =  "UPDATE security SET kod='"+FrontEnd.properties_newPW.getText()+"' WHERE id=1;";
         try (
                 Connection conn = this.connectionWithDatabase();
                 Statement stmt  = conn.createStatement();
@@ -1613,7 +1613,7 @@ public class BackEnd {
 	
 	public String returnBackCurrentSecurityCode(){
 		
-		String sql = "SELECT kod FROM SigurnosniKod WHERE id=1;";
+		String sql = "SELECT kod FROM security WHERE id=1;";
 		String securityCode=null;
 		
         try (
@@ -1637,7 +1637,7 @@ public class BackEnd {
 //Navigation Properties.Change_background --------------------------------------------------------------------------------------------------------------------	
 	public void returnBackBackground(){
 		
-		String sql = "SELECT pozadina FROM Pozadina WHERE id=1;";
+		String sql = "SELECT background FROM background WHERE id=1;";
 		
         try (
                 Connection conn = this.connectionWithDatabase();
@@ -1646,7 +1646,7 @@ public class BackEnd {
                 ){
         	
         	while(rs.next()){
-        	FrontEnd.background = rs.getString("pozadina");
+        	FrontEnd.background = rs.getString("background");
         	}
                 
             } catch (SQLException e) {
@@ -1659,7 +1659,7 @@ public class BackEnd {
 	
 	public void changeBackground(){
 		
-		String sql =  "UPDATE Pozadina SET pozadina='"+FrontEnd.background+"' WHERE id=1;";
+		String sql =  "UPDATE background SET background='"+FrontEnd.background+"' WHERE id=1;";
 		
         try {
                 Connection conn = this.connectionWithDatabase();

@@ -1317,48 +1317,7 @@ public class FrontEnd extends Application {
 			});
 			
 			
-//Navigation Properties --------------------------------------------------------------------------------------------------------------------
-//			propertiesButton.setOnAction( e -> {
-//				navigationBody.getChildren().remove(0);
-//				navigationBody.getChildren().add(0,propertiesContainer);
-//				try{
-//					navigationBody.getChildren().remove(1);
-//					}
-//					catch(Exception r){
-//					}
-//			});
-//			change_security_codeButton.setOnAction( e -> {
-//				try{
-//				navigationBody.getChildren().remove(1);
-//				}catch(Exception p){}
-//				navigationBody.getChildren().add(1,security_codeContainer);	
-//			});
-//			change_scButton.setOnAction( e -> object_Back.changeSecurityCode());
-//			
-////Navigation Properties.Change_background --------------------------------------------------------------------------------------------------------------------
-//			change_backgroundButton.setOnAction( e -> {
-//				try{
-//				navigationBody.getChildren().remove(1);
-//				}catch(Exception p){}
-//				navigationBody.getChildren().add(1,backgroundContainer);	
-//			});
-//			background1Button.setOnAction( e -> {
-//				background="background1";
-//				object_Back.changeBackground();
-//				backgroundIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
-//			});
-//			background2Button.setOnAction( e -> {
-//				background="background2";
-//				object_Back.changeBackground();
-//				backgroundIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
-//			});
-//			background3Button.setOnAction( e -> {
-//				background="background3";
-//				object_Back.changeBackground();
-//				backgroundIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
-//			});
-			
-			
+
 			
 //Navigation Informations --------------------------------------------------------------------------------------------------------------------
 			informationsButton.setOnAction( e -> {

@@ -1072,68 +1072,7 @@ public class FrontEnd extends Application {
 	        
 	        
 	        
-//Navigation Properties * --------------------------------------------------------------------------------------------------------------------
-//	        Button change_security_codeButton = new Button("Change                  \nsecurity code",new ImageView(new Image("file:./Images/Icons/Properties/Security_code.png")));
-//	        change_security_codeButton.setMinSize(151,30);
-//	        
-//	        Button change_backgroundButton = new Button("Change                  \n background",new ImageView(new Image("file:./Images/Icons/Properties/Background.png")));
-//	        change_backgroundButton.setMinSize(151,30);
-//	        
-//	        VBox propertiesContainer = new VBox();
-//	        propertiesContainer.getChildren().addAll(change_backgroundButton,change_security_codeButton);
-//	        propertiesContainer.setSpacing(8);
-//	        
-//	        
-////Navigation Properties.Change_background --------------------------------------------------------------------------------------------------------------------
-//	        Label background_titleL = new Label("Change background");
-//	        background_titleL.setStyle("-fx-font-size:21;-fx-text-fill: white");
-//	        
-//	        Button background1Button = new Button("Background 1");
-//	        background1Button.setMinSize(130,35);
-//	        Button background2Button = new Button("Background 2");
-//	        background2Button.setMinSize(130,35);
-//	        Button background3Button = new Button("Background 3");
-//	        background3Button.setMinSize(130,35);
-//	        
-//	        VBox backgroundContainer = new VBox();
-//	        backgroundContainer.getChildren().addAll(background_titleL,background1Button,background2Button,background3Button);
-//	        backgroundContainer.setSpacing(8);
-	        
-	        
-	        
-//Navigation Properties.Security_code --------------------------------------------------------------------------------------------------------------------
-//	        Label change_security_codeL = new Label("Change security code");
-//	        change_security_codeL.setStyle("-fx-font-size:21;-fx-text-fill: white");
-//	        
-//	        Label security_code_nowL = new Label("CURRENT security code*");
-//	        security_code_nowL.setStyle("-fx-text-fill: white");
-//	        properties_currentPF = new PasswordField();
-//	        
-//	        Label security_code_newL = new Label("NEW security code*");
-//	        security_code_newL.setStyle("-fx-text-fill: white");
-//	        properties_newPW = new PasswordField();
-//	        
-//	        Label security_code_new_repeatL = new Label("Repeat NEW security code*");
-//	        security_code_new_repeatL.setStyle("-fx-text-fill: white");
-//	        properties_repeat_newPF = new PasswordField();
-//	        
-//	        Button change_scButton = new Button("Change");
-//	        
-//	        
-//	        GridPane security_codeContainer = new GridPane();
-//	        security_codeContainer.add(change_security_codeL, 0, 0 ,2 ,1);
-//	        security_codeContainer.add(security_code_nowL, 0, 1);
-//	        security_codeContainer.add(properties_currentPF, 1, 1);
-//	        security_codeContainer.add(security_code_newL, 0, 2);
-//	        security_codeContainer.add(properties_newPW, 1, 2);
-//	        security_codeContainer.add(security_code_new_repeatL, 0, 3);
-//	        security_codeContainer.add(properties_repeat_newPF, 1, 3);
-//	        security_codeContainer.add(change_scButton, 1, 4);
-//	        security_codeContainer.setHgap(5);
-//	        security_codeContainer.setVgap(8);
-//	        
-	        
-	        
+
 //Navigation Informations * --------------------------------------------------------------------------------------------------------------------
 	        Button about_programButton = new Button("O aplikacji ");
 	        about_programButton.setMinSize(151, 30);
@@ -1151,7 +1090,7 @@ public class FrontEnd extends Application {
 	        about_programL.setStyle("-fx-font-size:21;-fx-text-fill: white");
 	        
 	        TextArea about_programTA = new TextArea();
-	        about_programTA.setText("");
+	        about_programTA.setText("Aplikacja - Wypożyczalnia filmów");
 	        about_programTA.setMinSize(710, 400);
 	        about_programTA.setEditable(false);
 	        
@@ -1165,7 +1104,9 @@ public class FrontEnd extends Application {
 	        about_authorL.setStyle("-fx-font-size:21;-fx-text-fill: white");
 	        
 	        TextArea about_authorTA = new TextArea();
-	        about_authorTA.setText("Oleh Bukliv, Serhii Fedirko. Katolicki Uniwersytet Lubelski, 2019");
+	        about_authorTA.setText("Oleh Bukliv, Serhii Fedirko"
+	        		+ " Katolicki Uniwersytet Lubelski"
+	        		+ " 2019");
 	        about_authorTA.setMinSize(370, 150);
 	        about_authorTA.setEditable(false);
 	        

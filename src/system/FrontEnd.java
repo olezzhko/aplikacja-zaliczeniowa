@@ -616,7 +616,7 @@ public class FrontEnd extends Application {
 	        rating_imdbL.setStyle("-fx-text-fill: white");
 	        rating_imdbTF = new TextField();
 	        
-	        Label duration_minutesL = new Label("Czas trwania /n(minuty)*");
+	        Label duration_minutesL = new Label("Czas trwania (minuty)*");
 	        duration_minutesL.setStyle("-fx-text-fill: white");
 	        duration_minutesTF = new TextField();
 	        

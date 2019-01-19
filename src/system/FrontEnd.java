@@ -1104,8 +1104,8 @@ public class FrontEnd extends Application {
 	        about_authorL.setStyle("-fx-font-size:21;-fx-text-fill: white");
 	        
 	        TextArea about_authorTA = new TextArea();
-	        about_authorTA.setText("Oleh Bukliv, Serhii Fedirko"
-	        		+ " Katolicki Uniwersytet Lubelski"
+	        about_authorTA.setText("Oleh Bukliv, Serhii Fedirko \n"
+	        		+ " Katolicki Uniwersytet Lubelski\n"
 	        		+ " 2019");
 	        about_authorTA.setMinSize(370, 150);
 	        about_authorTA.setEditable(false);

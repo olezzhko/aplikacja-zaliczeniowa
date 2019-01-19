@@ -64,14 +64,14 @@ public class BackEnd {
 		
 		String id_klienta = makingUserID();
 
-		String sql = "INSERT INTO klient (imie,id_klienta,nazwisko,pesel,adres,telefon,email) VALUES('"+FrontEnd.firstnameTF.getText()+"','"+id_klienta+"','"+FrontEnd.lastnameTF.getText()+"','"+FrontEnd.ssnTF.getText()+"','"+FrontEnd.adressTF.getText()+"','"+FrontEnd.phone_numberTF.getText()+"','"+FrontEnd.emailTF.getText()+"')";
+		String sql = "INSERT INTO klient (imie,id_klienta,nazwisko,pesel,adres,telefon,email) VALUES('"+FrontEnd.firstnameTF.getText()+"','"+id_klienta+"','"+FrontEnd.lastnameTF.getText()+"','"+FrontEnd.peselTF.getText()+"','"+FrontEnd.adressTF.getText()+"','"+FrontEnd.phone_numberTF.getText()+"','"+FrontEnd.emailTF.getText()+"')";
      
         
-		if( FrontEnd.firstnameTF.getText().equals("") || FrontEnd.lastnameTF.getText().equals("") || FrontEnd.ssnTF.getText().equals("") || FrontEnd.adressTF.getText().equals("") || FrontEnd.phone_numberTF.getText().equals("") ){
+		if( FrontEnd.firstnameTF.getText().equals("") || FrontEnd.lastnameTF.getText().equals("") || FrontEnd.peselTF.getText().equals("") || FrontEnd.adressTF.getText().equals("") || FrontEnd.phone_numberTF.getText().equals("") ){
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("Notification");
+			alert.setTitle("Uwaga");
 			alert.setHeaderText(null);
-			alert.setContentText("You need to fill in all the fields with * ");
+			alert.setContentText("Musisz wypełnić wszystkie pola z * ");
 
 			alert.showAndWait();
 		}
@@ -86,7 +86,7 @@ public class BackEnd {
             }
 			
 	        try {
-	        		String sqlUzimiID = "SELECT * FROM klient WHERE pesel='" + FrontEnd.ssnTF.getText() + "';";
+	        		String sqlUzimiID = "SELECT * FROM klient WHERE pesel='" + FrontEnd.peselTF.getText() + "';";
 	        	
 	                Connection conn = this.connectionWithDatabase();
 	                Statement stmt  = conn.createStatement();
@@ -102,12 +102,12 @@ public class BackEnd {
 	        		Alert alert = new Alert(AlertType.INFORMATION);
 	        		alert.setTitle("Notification");
 	        		alert.setHeaderText(null);
-	        		alert.setContentText("You have successfully added a new user " + imienazwisko +".\nHis ID is: "  +idklienta);
+	        		alert.setContentText("Pomyślnie dodałeś nowego klienta: " + imienazwisko +".\nJego ID to: "  +idklienta);
 	        		alert.showAndWait();
 	        		
 	        		FrontEnd.firstnameTF.clear();
 	        		FrontEnd.lastnameTF.clear();
-	        		FrontEnd.ssnTF.clear();
+	        		FrontEnd.peselTF.clear();
 	        		FrontEnd.adressTF.clear();
 	        		FrontEnd.phone_numberTF.clear();
 	        		FrontEnd.emailTF.clear();
@@ -137,30 +137,30 @@ public class BackEnd {
  	
     		FrontEnd.firstnameTF2.setDisable(false);
     		FrontEnd.lastnameTF2.setDisable(false);   		
-    		FrontEnd.ssnTF2.setDisable(false);   		
+    		FrontEnd.peselTF2.setDisable(false);   		
     		FrontEnd.adressTF2.setDisable(false);  		
     		FrontEnd.phone_numberTF2.setDisable(false);
     		FrontEnd.emailTF2.setDisable(false);
     		FrontEnd.firstnameL2.setDisable(false);
     		FrontEnd.lastnameL2.setDisable(false);
-    		FrontEnd.ssnL2.setDisable(false);
+    		FrontEnd.peselL2.setDisable(false);
     		FrontEnd.adressL2.setDisable(false);
     		FrontEnd.phone_numberL2.setDisable(false);
     		FrontEnd.emailL2.setDisable(false);
     		FrontEnd.editButton2.setDisable(false);
     		FrontEnd.changeUserButton2.setDisable(false);
     				
-        	FrontEnd.firstnameTF2.setText(rs.getString("ime"));
-        	FrontEnd.lastnameTF2.setText(rs.getString("prezime"));
-        	FrontEnd.ssnTF2.setText(rs.getString("pesel"));
-        	FrontEnd.adressTF2.setText(rs.getString("adresa"));
-        	FrontEnd.phone_numberTF2.setText(rs.getString("broj_telefona"));
+        	FrontEnd.firstnameTF2.setText(rs.getString("imee"));
+        	FrontEnd.lastnameTF2.setText(rs.getString("nazwisko"));
+        	FrontEnd.peselTF2.setText(rs.getString("pesel"));
+        	FrontEnd.adressTF2.setText(rs.getString("adres"));
+        	FrontEnd.phone_numberTF2.setText(rs.getString("telefon"));
         	FrontEnd.emailTF2.setText(rs.getString("email"));
     		
         	
     		FrontEnd.firstnameTF2.setStyle(null);
     		FrontEnd.lastnameTF2.setStyle(null);
-    		FrontEnd.ssnTF2.setStyle(null);
+    		FrontEnd.peselTF2.setStyle(null);
     		FrontEnd.adressTF2.setStyle(null);
     		FrontEnd.phone_numberTF2.setStyle(null);
     		FrontEnd.emailTF2.setStyle(null);
@@ -169,20 +169,20 @@ public class BackEnd {
         	else{
         		FrontEnd.firstnameTF2.clear();
         		FrontEnd.lastnameTF2.clear();  		
-        		FrontEnd.ssnTF2.clear();   		
+        		FrontEnd.peselTF2.clear();   		
         		FrontEnd.adressTF2.clear(); 		
         		FrontEnd.phone_numberTF2.clear();
         		FrontEnd.emailTF2.clear();
                 
         		FrontEnd.firstnameTF2.setDisable(true);
         		FrontEnd.lastnameTF2.setDisable(true);   		
-        		FrontEnd.ssnTF2.setDisable(true);   		
+        		FrontEnd.peselTF2.setDisable(true);   		
         		FrontEnd.adressTF2.setDisable(true);  		
         		FrontEnd.phone_numberTF2.setDisable(true);
         		FrontEnd.emailTF2.setDisable(true);
         		FrontEnd.firstnameL2.setDisable(true);
         		FrontEnd.lastnameL2.setDisable(true);
-        		FrontEnd.ssnL2.setDisable(true);
+        		FrontEnd.peselL2.setDisable(true);
         		FrontEnd.adressL2.setDisable(true);
         		FrontEnd.phone_numberL2.setDisable(true);
         		FrontEnd.emailL2.setDisable(true);
@@ -190,9 +190,9 @@ public class BackEnd {
         		
 
     			Alert alert = new Alert(AlertType.WARNING);
-    			alert.setTitle("Notification");
+    			alert.setTitle("Uwaga");
     			alert.setHeaderText(null);
-    			alert.setContentText("You must insert valid user ID! ");
+    			alert.setContentText("Musisz wpisać poprawny ID klienta! ");
 
     			alert.showAndWait();
         	}
@@ -203,20 +203,20 @@ public class BackEnd {
                 //This is if user put characters in ID
         		FrontEnd.firstnameTF2.clear();
         		FrontEnd.lastnameTF2.clear();  		
-        		FrontEnd.ssnTF2.clear();   		
+        		FrontEnd.peselTF2.clear();   		
         		FrontEnd.adressTF2.clear(); 		
         		FrontEnd.phone_numberTF2.clear();
         		FrontEnd.emailTF2.clear();
                 
         		FrontEnd.firstnameTF2.setDisable(true);
         		FrontEnd.lastnameTF2.setDisable(true);   		
-        		FrontEnd.ssnTF2.setDisable(true);   		
+        		FrontEnd.peselTF2.setDisable(true);   		
         		FrontEnd.adressTF2.setDisable(true);  		
         		FrontEnd.phone_numberTF2.setDisable(true);
         		FrontEnd.emailTF2.setDisable(true);
         		FrontEnd.firstnameL2.setDisable(true);
         		FrontEnd.lastnameL2.setDisable(true);
-        		FrontEnd.ssnL2.setDisable(true);
+        		FrontEnd.peselL2.setDisable(true);
         		FrontEnd.adressL2.setDisable(true);
         		FrontEnd.phone_numberL2.setDisable(true);
         		FrontEnd.emailL2.setDisable(true);
@@ -224,9 +224,9 @@ public class BackEnd {
         		
 
     			Alert alert = new Alert(AlertType.WARNING);
-    			alert.setTitle("Notification");
+    			alert.setTitle("Uwaga");
     			alert.setHeaderText(null);
-    			alert.setContentText("You must insert valid user ID! ");
+    			alert.setContentText("Musisz wpisać poprawny ID klienta! ");
 
     			alert.showAndWait();
             }
@@ -242,20 +242,20 @@ public class BackEnd {
     	FrontEnd.idTF2.clear();
 		FrontEnd.firstnameTF2.clear();
 		FrontEnd.lastnameTF2.clear();  		
-		FrontEnd.ssnTF2.clear();   		
+		FrontEnd.peselTF2.clear();   		
 		FrontEnd.adressTF2.clear(); 		
 		FrontEnd.phone_numberTF2.clear();
 		FrontEnd.emailTF2.clear();
 	
 		FrontEnd.firstnameTF2.setDisable(true);
 		FrontEnd.lastnameTF2.setDisable(true);   		
-		FrontEnd.ssnTF2.setDisable(true);   		
+		FrontEnd.peselTF2.setDisable(true);   		
 		FrontEnd.adressTF2.setDisable(true);  		
 		FrontEnd.phone_numberTF2.setDisable(true);
 		FrontEnd.emailTF2.setDisable(true);
 		FrontEnd.firstnameL2.setDisable(true);
 		FrontEnd.lastnameL2.setDisable(true);
-		FrontEnd.ssnL2.setDisable(true);
+		FrontEnd.peselL2.setDisable(true);
 		FrontEnd.adressL2.setDisable(true);
 		FrontEnd.phone_numberL2.setDisable(true);
 		FrontEnd.emailL2.setDisable(true);
@@ -266,13 +266,13 @@ public class BackEnd {
 	
 	public void editUser(){
 		
-		String sql = "UPDATE klient SET ime='"+FrontEnd.firstnameTF2.getText()+"',prezime='"+FrontEnd.lastnameTF2.getText()+"',pesel="+FrontEnd.ssnTF2.getText()+",adresa='"+FrontEnd.adressTF2.getText()+"',broj_telefona="+FrontEnd.phone_numberTF2.getText()+",email='"+FrontEnd.emailTF2.getText()+"' WHERE id_klienta='"+FrontEnd.idTF2.getText()+"';";
+		String sql = "UPDATE klient SET imie='"+FrontEnd.firstnameTF2.getText()+"',nazwisko='"+FrontEnd.lastnameTF2.getText()+"',pesel="+FrontEnd.peselTF2.getText()+",adres='"+FrontEnd.adressTF2.getText()+"',telefon="+FrontEnd.phone_numberTF2.getText()+",email='"+FrontEnd.emailTF2.getText()+"' WHERE id_klienta='"+FrontEnd.idTF2.getText()+"';";
 
-		if( FrontEnd.firstnameTF2.getText().equals("") || FrontEnd.lastnameTF2.getText().equals("") || FrontEnd.ssnTF2.getText().equals("") || FrontEnd.adressTF2.getText().equals("") || FrontEnd.phone_numberTF2.equals("") ){
+		if( FrontEnd.firstnameTF2.getText().equals("") || FrontEnd.lastnameTF2.getText().equals("") || FrontEnd.peselTF2.getText().equals("") || FrontEnd.adressTF2.getText().equals("") || FrontEnd.phone_numberTF2.equals("") ){
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("Notification");
+			alert.setTitle("Uwaga");
 			alert.setHeaderText(null);
-			alert.setContentText("You must fill all fields with * ");
+			alert.setContentText("Musisz wypełnić wszystkie pola z * ");
 
 			alert.showAndWait();
 		}
@@ -289,9 +289,9 @@ public class BackEnd {
             }
         
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Notification");
+		alert.setTitle("Uwaga");
 		alert.setHeaderText(null);
-		alert.setContentText("You have successfully edited the selected user.");
+		alert.setContentText("Pomyślnie edytowałes klienta.");
 		alert.showAndWait();
 		
     	FrontEnd.idL2.setDisable(false);
@@ -301,20 +301,20 @@ public class BackEnd {
     	FrontEnd.idTF2.clear();
 		FrontEnd.firstnameTF2.clear();
 		FrontEnd.lastnameTF2.clear();  		
-		FrontEnd.ssnTF2.clear();   		
+		FrontEnd.peselTF2.clear();   		
 		FrontEnd.adressTF2.clear(); 		
 		FrontEnd.phone_numberTF2.clear();
 		FrontEnd.emailTF2.clear();
         
 		FrontEnd.firstnameTF2.setDisable(true);
 		FrontEnd.lastnameTF2.setDisable(true);   		
-		FrontEnd.ssnTF2.setDisable(true);   		
+		FrontEnd.peselTF2.setDisable(true);   		
 		FrontEnd.adressTF2.setDisable(true);  		
 		FrontEnd.phone_numberTF2.setDisable(true);
 		FrontEnd.emailTF2.setDisable(true);
 		FrontEnd.firstnameL2.setDisable(true);
 		FrontEnd.lastnameL2.setDisable(true);
-		FrontEnd.ssnL2.setDisable(true);
+		FrontEnd.peselL2.setDisable(true);
 		FrontEnd.adressL2.setDisable(true);
 		FrontEnd.phone_numberL2.setDisable(true);
 		FrontEnd.emailL2.setDisable(true);
@@ -339,42 +339,42 @@ public class BackEnd {
             	if(rs.next()){
             		FrontEnd.firstnameTF3.setDisable(false);
             		FrontEnd.lastnameTF3.setDisable(false);   		
-            		FrontEnd.ssnTF3.setDisable(false);   		
+            		FrontEnd.peselTF3.setDisable(false);   		
             		FrontEnd.adressTF3.setDisable(false);  		
             		FrontEnd.phone_numberTF3.setDisable(false);
             		FrontEnd.emailTF3.setDisable(false);
             		FrontEnd.firstnameL3.setDisable(false);
             		FrontEnd.lastnameL3.setDisable(false);
-            		FrontEnd.ssnL3.setDisable(false);
+            		FrontEnd.peselL3.setDisable(false);
             		FrontEnd.adressL3.setDisable(false);
             		FrontEnd.phone_numberL3.setDisable(false);
             		FrontEnd.emailL3.setDisable(false);
             		
             		
-                	FrontEnd.firstnameTF3.setText(rs.getString("ime"));
-                	FrontEnd.lastnameTF3.setText(rs.getString("prezime"));
-                	FrontEnd.ssnTF3.setText(rs.getString("pesel"));
-                	FrontEnd.adressTF3.setText(rs.getString("adresa"));
-                	FrontEnd.phone_numberTF3.setText(rs.getString("broj_telefona"));
+                	FrontEnd.firstnameTF3.setText(rs.getString("imie"));
+                	FrontEnd.lastnameTF3.setText(rs.getString("nazwisko"));
+                	FrontEnd.peselTF3.setText(rs.getString("pesel"));
+                	FrontEnd.adressTF3.setText(rs.getString("adres"));
+                	FrontEnd.phone_numberTF3.setText(rs.getString("telefon"));
                 	FrontEnd.emailTF3.setText(rs.getString("email"));
             		}else{
             			
             			FrontEnd.firstnameTF3.clear();
                 		FrontEnd.lastnameTF3.clear();  		
-                		FrontEnd.ssnTF3.clear();   		
+                		FrontEnd.peselTF3.clear();   		
                 		FrontEnd.adressTF3.clear(); 		
                 		FrontEnd.phone_numberTF3.clear();
                 		FrontEnd.emailTF3.clear();
                         
                 		FrontEnd.firstnameTF3.setDisable(true);
                 		FrontEnd.lastnameTF3.setDisable(true);   		
-                		FrontEnd.ssnTF3.setDisable(true);   		
+                		FrontEnd.peselTF3.setDisable(true);   		
                 		FrontEnd.adressTF3.setDisable(true);  		
                 		FrontEnd.phone_numberTF3.setDisable(true);
                 		FrontEnd.emailTF3.setDisable(true);
                 		FrontEnd.firstnameL3.setDisable(true);
                 		FrontEnd.lastnameL3.setDisable(true);
-                		FrontEnd.ssnL3.setDisable(true);
+                		FrontEnd.peselL3.setDisable(true);
                 		FrontEnd.adressL3.setDisable(true);
                 		FrontEnd.phone_numberL3.setDisable(true);
                 		FrontEnd.emailL3.setDisable(true);
@@ -382,9 +382,9 @@ public class BackEnd {
 
                         
             			Alert alert = new Alert(AlertType.WARNING);
-            			alert.setTitle("Notification");
+            			alert.setTitle("Uwaga");
             			alert.setHeaderText(null);
-            			alert.setContentText("You must enter valid user ID! ");
+            			alert.setContentText("Musisz wpisać poprawny ID klienta! ");
 
             			alert.showAndWait();
             	}
@@ -413,13 +413,13 @@ public class BackEnd {
  	
     		FrontEnd.firstnameTF4.setDisable(false);
     		FrontEnd.lastnameTF4.setDisable(false);   		
-    		FrontEnd.ssnTF4.setDisable(false);   		
+    		FrontEnd.peselTF4.setDisable(false);   		
     		FrontEnd.adressTF4.setDisable(false);  		
     		FrontEnd.phone_numberTF4.setDisable(false);
     		FrontEnd.emailTF4.setDisable(false);
     		FrontEnd.firstnameL4.setDisable(false);
     		FrontEnd.lastnameL4.setDisable(false);
-    		FrontEnd.ssnL4.setDisable(false);
+    		FrontEnd.peselL4.setDisable(false);
     		FrontEnd.adressL4.setDisable(false);
     		FrontEnd.phone_numberL4.setDisable(false);
     		FrontEnd.emailL4.setDisable(false);
@@ -427,11 +427,11 @@ public class BackEnd {
     		FrontEnd.changeUserButton4.setDisable(false);
     		
 
-        	FrontEnd.firstnameTF4.setText(rs.getString("ime"));
-        	FrontEnd.lastnameTF4.setText(rs.getString("prezime"));
-        	FrontEnd.ssnTF4.setText(rs.getString("pesel"));
-        	FrontEnd.adressTF4.setText(rs.getString("adresa"));
-        	FrontEnd.phone_numberTF4.setText(rs.getString("broj_telefona"));
+        	FrontEnd.firstnameTF4.setText(rs.getString("imie"));
+        	FrontEnd.lastnameTF4.setText(rs.getString("nazwisko"));
+        	FrontEnd.peselTF4.setText(rs.getString("pesel"));
+        	FrontEnd.adressTF4.setText(rs.getString("adres"));
+        	FrontEnd.phone_numberTF4.setText(rs.getString("telefon"));
         	FrontEnd.emailTF4.setText(rs.getString("email"));
     		}
         	else{
@@ -440,20 +440,20 @@ public class BackEnd {
             	FrontEnd.searchButton4.setDisable(false);
         		FrontEnd.firstnameTF4.clear();
         		FrontEnd.lastnameTF4.clear();  		
-        		FrontEnd.ssnTF4.clear();   		
+        		FrontEnd.peselTF4.clear();   		
         		FrontEnd.adressTF4.clear(); 		
         		FrontEnd.phone_numberTF4.clear();
         		FrontEnd.emailTF4.clear();
                 
         		FrontEnd.firstnameTF4.setDisable(true);
         		FrontEnd.lastnameTF4.setDisable(true);   		
-        		FrontEnd.ssnTF4.setDisable(true);   		
+        		FrontEnd.peselTF4.setDisable(true);   		
         		FrontEnd.adressTF4.setDisable(true);  		
         		FrontEnd.phone_numberTF4.setDisable(true);
         		FrontEnd.emailTF4.setDisable(true);
         		FrontEnd.firstnameL4.setDisable(true);
         		FrontEnd.lastnameL4.setDisable(true);
-        		FrontEnd.ssnL4.setDisable(true);
+        		FrontEnd.peselL4.setDisable(true);
         		FrontEnd.adressL4.setDisable(true);
         		FrontEnd.phone_numberL4.setDisable(true);
         		FrontEnd.emailL4.setDisable(true);
@@ -463,9 +463,9 @@ public class BackEnd {
 
                 
     			Alert alert = new Alert(AlertType.WARNING);
-    			alert.setTitle("Notification");
+    			alert.setTitle("Uwaga");
     			alert.setHeaderText(null);
-    			alert.setContentText("You must enter valid user ID! ");
+    			alert.setContentText("Musisz wpisać poprawny ID klienta! ");
 
     			alert.showAndWait();
         		}
@@ -478,20 +478,20 @@ public class BackEnd {
             	FrontEnd.searchButton4.setDisable(false);
         		FrontEnd.firstnameTF4.clear();
         		FrontEnd.lastnameTF4.clear();  		
-        		FrontEnd.ssnTF4.clear();   		
+        		FrontEnd.peselTF4.clear();   		
         		FrontEnd.adressTF4.clear(); 		
         		FrontEnd.phone_numberTF4.clear();
         		FrontEnd.emailTF4.clear();
                 
         		FrontEnd.firstnameTF4.setDisable(true);
         		FrontEnd.lastnameTF4.setDisable(true);   		
-        		FrontEnd.ssnTF4.setDisable(true);   		
+        		FrontEnd.peselTF4.setDisable(true);   		
         		FrontEnd.adressTF4.setDisable(true);  		
         		FrontEnd.phone_numberTF4.setDisable(true);
         		FrontEnd.emailTF4.setDisable(true);
         		FrontEnd.firstnameL4.setDisable(true);
         		FrontEnd.lastnameL4.setDisable(true);
-        		FrontEnd.ssnL4.setDisable(true);
+        		FrontEnd.peselL4.setDisable(true);
         		FrontEnd.adressL4.setDisable(true);
         		FrontEnd.phone_numberL4.setDisable(true);
         		FrontEnd.emailL4.setDisable(true);
@@ -501,9 +501,9 @@ public class BackEnd {
 
                 
     			Alert alert = new Alert(AlertType.WARNING);
-    			alert.setTitle("Notification");
+    			alert.setTitle("Uwaga");
     			alert.setHeaderText(null);
-    			alert.setContentText("You must enter valid user ID! ");
+    			alert.setContentText("Musisz wpisać poprawny ID klienta! ");
 
     			alert.showAndWait();
             }     	
@@ -518,20 +518,20 @@ public class BackEnd {
         	FrontEnd.idTF4.clear();
     		FrontEnd.firstnameTF4.clear();
     		FrontEnd.lastnameTF4.clear();  		
-    		FrontEnd.ssnTF4.clear();   		
+    		FrontEnd.peselTF4.clear();   		
     		FrontEnd.adressTF4.clear(); 		
     		FrontEnd.phone_numberTF4.clear();
     		FrontEnd.emailTF4.clear();
  	
     		FrontEnd.firstnameTF4.setDisable(true);
     		FrontEnd.lastnameTF4.setDisable(true);   		
-    		FrontEnd.ssnTF4.setDisable(true);   		
+    		FrontEnd.peselTF4.setDisable(true);   		
     		FrontEnd.adressTF4.setDisable(true);  		
     		FrontEnd.phone_numberTF4.setDisable(true);
     		FrontEnd.emailTF4.setDisable(true);
     		FrontEnd.firstnameL4.setDisable(true);
     		FrontEnd.lastnameL4.setDisable(true);
-    		FrontEnd.ssnL4.setDisable(true);
+    		FrontEnd.peselL4.setDisable(true);
     		FrontEnd.adressL4.setDisable(true);
     		FrontEnd.phone_numberL4.setDisable(true);
     		FrontEnd.emailL4.setDisable(true);
@@ -557,9 +557,9 @@ public class BackEnd {
     	if(FrontEnd.idTF4.getText().equals("")){
     		
     		Alert alert = new Alert(AlertType.WARNING);
-    		alert.setTitle("Notification");
+    		alert.setTitle("Uwaga");
     		alert.setHeaderText(null);
-    		alert.setContentText("You must enter valid user ID, try again!.");
+    		alert.setContentText("Musisz wpisać poprawny ID klienta!");
 
     		alert.showAndWait();
     		
@@ -568,7 +568,7 @@ public class BackEnd {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Notification");
 		alert.setHeaderText(null);
-		alert.setContentText("You successfully.");
+		alert.setContentText("Pomyślnie usunąłeś klienta.");
 
 		alert.showAndWait();
     	}
@@ -576,7 +576,7 @@ public class BackEnd {
         FrontEnd.idTF4.clear();
 		FrontEnd.firstnameTF4.clear();
 		FrontEnd.lastnameTF4.clear();  		
-		FrontEnd.ssnTF4.clear();   		
+		FrontEnd.peselTF4.clear();   		
 		FrontEnd.adressTF4.clear(); 		
 		FrontEnd.phone_numberTF4.clear();
 		FrontEnd.emailTF4.clear();
@@ -587,13 +587,13 @@ public class BackEnd {
 		
 		FrontEnd.firstnameTF4.setDisable(true);
 		FrontEnd.lastnameTF4.setDisable(true);   		
-		FrontEnd.ssnTF4.setDisable(true);   		
+		FrontEnd.peselTF4.setDisable(true);   		
 		FrontEnd.adressTF4.setDisable(true);  		
 		FrontEnd.phone_numberTF4.setDisable(true);
 		FrontEnd.emailTF4.setDisable(true);
 		FrontEnd.firstnameL4.setDisable(true);
 		FrontEnd.lastnameL4.setDisable(true);
-		FrontEnd.ssnL4.setDisable(true);
+		FrontEnd.peselL4.setDisable(true);
 		FrontEnd.adressL4.setDisable(true);
 		FrontEnd.phone_numberL4.setDisable(true);
 		FrontEnd.emailL4.setDisable(true);
@@ -634,9 +634,9 @@ public class BackEnd {
         
 		if( FrontEnd.movieTitleTF.getText().equals("") || FrontEnd.genreTF.getText().equals("") || FrontEnd.release_yearTF.getText().equals("") || FrontEnd.rating_imdbTF.getText().equals("") || FrontEnd.duration_minutesTF.getText().equals("") ){
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("Notification");
+			alert.setTitle("Uwaga");
 			alert.setHeaderText(null);
-			alert.setContentText("You must enter all fields with * ");
+			alert.setContentText("Musisz wypełnić wszystkie pola z * ");
 
 			alert.showAndWait();
 		}
@@ -651,9 +651,9 @@ public class BackEnd {
 	            }
 		
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Notification");
+		alert.setTitle("Uwaga");
 		alert.setHeaderText(null);
-		alert.setContentText("You have successfully added new movie.");
+		alert.setContentText("Pomyślnie dodałeś nowy film.");
 		alert.showAndWait();
 		
 		FrontEnd.movieTitleTF.clear();
@@ -714,9 +714,9 @@ public class BackEnd {
 
 		if( FrontEnd.find_idTF.getText().equals("") && FrontEnd.find_titleTF.getText().equals("") && FrontEnd.find_genreTF.getText().equals("") && FrontEnd.find_release_yearTF.getText().equals("") && FrontEnd.find_main_actorTF.getText().equals("") ){
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("Notification");
+			alert.setTitle("Uwaga");
 			alert.setHeaderText(null);
-			alert.setContentText("You must enter at least one field!");
+			alert.setContentText("Musisz wypełnić chociażby jedno pole!");
 
 			alert.showAndWait();
 		}
@@ -847,9 +847,9 @@ public class BackEnd {
 
                 
     			Alert alert = new Alert(AlertType.WARNING);
-    			alert.setTitle("Notification");
+    			alert.setTitle("Uwaga");
     			alert.setHeaderText(null);
-    			alert.setContentText("You must enter valid Movie ID! ");
+    			alert.setContentText("Film o takim ID nie istnieje! ");
 
     			alert.showAndWait();
         	}
@@ -891,9 +891,9 @@ public class BackEnd {
 
                 
     			Alert alert = new Alert(AlertType.WARNING);
-    			alert.setTitle("Notification");
+    			alert.setTitle("Uwaga");
     			alert.setHeaderText(null);
-    			alert.setContentText("You must enter valid Movie ID! ");
+    			alert.setContentText("Film o takim ID nie istnieje! ");
 
     			alert.showAndWait();
             }
@@ -944,9 +944,9 @@ public class BackEnd {
 
 		if( FrontEnd.movieTitleTF2.getText().equals("") || FrontEnd.genreTF2.getText().equals("") || FrontEnd.release_yearTF2.getText().equals("") || FrontEnd.rating_imdbTF2.getText().equals("") || FrontEnd.duration_minutesTF2.equals("") ){
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("Notification");
+			alert.setTitle("Uwaga");
 			alert.setHeaderText(null);
-			alert.setContentText("You must enter all fields with * ");
+			alert.setContentText("Musisz wypełnić wszystkie pola z * ");
 
 			alert.showAndWait();
 		}
@@ -963,9 +963,9 @@ public class BackEnd {
             }
         
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Notification");
+		alert.setTitle("Uwaga");
 		alert.setHeaderText(null);
-		alert.setContentText("You hav esuccessfully edited selected movie.");
+		alert.setContentText("Pomyślnie edytowałeś wybrany film");
 		alert.showAndWait();
 		
     	FrontEnd.edit_idL2.setDisable(false);
@@ -1021,9 +1021,9 @@ public class BackEnd {
             }
         
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Notification");
+		alert.setTitle("Uwaga");
 		alert.setHeaderText(null);
-		alert.setContentText("You have successfully deleted selected Movie.");
+		alert.setContentText("Pomyślnie usunąłeś wybrany film");
 		alert.showAndWait();
 		
     	FrontEnd.edit_idL2.setDisable(false);
@@ -1089,9 +1089,7 @@ public class BackEnd {
 		
 	}
 	
-	
-//Navigation Rental * --------------------------------------------------------------------------------------------------------------------
-	
+		
 //Navigation Rental.Rental_movie --------------------------------------------------------------------------------------------------------------------
 	public boolean check_is_movie_availbale(){
 		
@@ -1164,9 +1162,9 @@ public class BackEnd {
 			if(FrontEnd.rentalMovie_id_movieTF.getText().equals("") || FrontEnd.rentalMovie_id_userTF.getText().equals("") ){
 				
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Notification");
+				alert.setTitle("Uwaga");
 				alert.setHeaderText(null);
-				alert.setContentText("You must enter all fields with * ");
+				alert.setContentText("Musisz wypełnić wszystkie pola z * ");
 				
 				alert.showAndWait();
 				
@@ -1233,9 +1231,9 @@ public class BackEnd {
 		    			        	}else{
 		    			        		
 		    			    			Alert alert = new Alert(AlertType.WARNING);
-		    			    			alert.setTitle("Notification");
+		    			    			alert.setTitle("Uwaga");
 		    			    			alert.setHeaderText(null);
-		    			    			alert.setContentText("You can't rental movie,because it's already rentaled!");
+		    			    			alert.setContentText("Ten film już jest wypożyczony!");
 		    			    			
 		    			    			alert.showAndWait();
 		    			    			
@@ -1252,9 +1250,9 @@ public class BackEnd {
 	    			 
 	    		 }else{
 		    			Alert alert = new Alert(AlertType.WARNING);
-		    			alert.setTitle("Notification");
+		    			alert.setTitle("Uwaga");
 		    			alert.setHeaderText(null);
-		    			alert.setContentText("You entered non-existent MOVIE ID or USER ID !");
+		    			alert.setContentText("Klient lub Film o takim ID nie istnieje !");
 		    			
 		    			alert.showAndWait();
 		    			
@@ -1267,31 +1265,31 @@ public class BackEnd {
 		                	
 		                	
 		                	
-		            		boolean passbookForBookReservation = false;
+		            		boolean zarezerwowany = false;
 		            		
 		            		boolean checkIsMovieAvailbale = this.check_is_movie_availbale();
 		            		
 		            		if(checkIsMovieAvailbale==true){
-		            			boolean proveriDaLiOsobaKojaJeRezervisalaFilmUzimaTajFilm = this.checkIfPersonWhoReservedTheMovieTakeThatMovie();
+		            			boolean czyWypozyczony = this.checkIfPersonWhoReservedTheMovieTakeThatMovie();
 		            			
-		            			if(proveriDaLiOsobaKojaJeRezervisalaFilmUzimaTajFilm==false){
+		            			if(czyWypozyczony==false){
 		            				Alert alert = new Alert(AlertType.WARNING);
-		            				alert.setTitle("Notification");
+		            				alert.setTitle("Uwaga");
 		            				alert.setHeaderText(null);
-		            				alert.setContentText("You can't rental movie because is ONLINE RESERVED.");
+		            				alert.setContentText("Nie możesz wypożyczyć tego filmu.");
 		            				
 		            				alert.showAndWait();
 		            				
 	        		        		FrontEnd.rentalMovie_id_movieTF.clear();
 	        		        		FrontEnd.rentalMovie_id_userTF.clear();
 		            			}else{
-		            				passbookForBookReservation = true;
+		            				zarezerwowany = true;
 		            			}
 		            		}else{
-		            			passbookForBookReservation = true;
+		            			zarezerwowany = true;
 		            		}
 		            		
-		            		if(passbookForBookReservation==true){
+		            		if(zarezerwowany==true){
 		        		        try {
 	        		                Connection conn3 = this.connectionWithDatabase();
 	        		                Statement stmt3  = conn3.createStatement();
@@ -1302,9 +1300,9 @@ public class BackEnd {
 	        		        };
 	        		        
 	    	        		Alert alert = new Alert(AlertType.INFORMATION);
-	        		        		alert.setTitle("Notification");
+	        		        		alert.setTitle("Uwaga");
 	        		        		alert.setHeaderText(null);
-	        		        		alert.setContentText("You have successfully rentaled movie. ");
+	        		        		alert.setContentText("Pomyślnie wypożyczyłeś film ");
 	        		        		
 	        		        		alert.showAndWait();
 	        		        		
@@ -1341,9 +1339,9 @@ public class BackEnd {
 		if(FrontEnd.returnBackMovie_idMovieTF.getText().equals("") ){
 			
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("Notification");
+			alert.setTitle("Uwaga");
 			alert.setHeaderText(null);
-			alert.setContentText("You must enter all fields with * ");
+			alert.setContentText("Musisz wypełnić wszystkie pola z * ");
 			
 			alert.showAndWait();
 			
@@ -1398,9 +1396,9 @@ public class BackEnd {
 	            			 
 	            		 }else{
 	            				Alert alert = new Alert(AlertType.WARNING);
-	            				alert.setTitle("Notification");
+	            				alert.setTitle("Uwaga");
 	            				alert.setHeaderText(null);
-	            				alert.setContentText("This movie is already returned! ");
+	            				alert.setContentText("Ten film już jest zwrócony! ");
 	            				
 	            				alert.showAndWait();
 	            				
@@ -1416,9 +1414,9 @@ public class BackEnd {
 	        	
 	        }else{
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Notification");
+				alert.setTitle("Uwaga");
 				alert.setHeaderText(null);
-				alert.setContentText("You entered invalid Movie ID! ");
+				alert.setContentText("Wpisałeś niepoprawny ID filmu! ");
 				
 				alert.showAndWait();
 	        }
@@ -1456,11 +1454,11 @@ public class BackEnd {
 	        	
 	        }else{
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Obaveštenje");
+				alert.setTitle("Uwaga");
 				alert.setHeaderText(null);
 				int exceededDays = days-5;
 				double exceededMoney = exceededDays * 5;
-				alert.setContentText("You have exceeded 5 days of allowed rental.\nMovie is rentaled(day month year) "+dateOfRentalDatabase+" .\n"+"You must pay for "+exceededDays+" prekoračenih dana,5 dinara po danu, tj. "+exceededMoney + " dollars." );
+				alert.setContentText("Przekroczyłeś 5 dozwolonych dni na wypożyczenie.\nFilm był wypożyczony "+dateOfRentalDatabase+" .\n"+"Musisz zapłacić za "+exceededDays+" przekroczonych dni "+exceededMoney + " złotych." );
 				
 				alert.showAndWait();	
 	        }
@@ -1479,9 +1477,9 @@ public class BackEnd {
 	            }
 	        
 			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Notification");
+			alert.setTitle("Uwaga");
 			alert.setHeaderText(null);
-			alert.setContentText("You have successfully returned back movie. ");
+			alert.setContentText("Pomyślnie zwróciłeś film!");
 			
 			alert.showAndWait();
 			
@@ -1517,99 +1515,7 @@ public class BackEnd {
 		
 		
 	}
-	
-	
-	
-//Navigation Properties * --------------------------------------------------------------------------------------------------------------------	
 		
-//Navigation Properties.Security_code --------------------------------------------------------------------------------------------------------------------	
-	public void changeSecurityCode(){
-		
-		String sql = "SELECT kod FROM security WHERE id=1;";
-		String sql2 =  "UPDATE security SET kod='"+FrontEnd.properties_newPW.getText()+"' WHERE id=1;";
-        try (
-                Connection conn = this.connectionWithDatabase();
-                Statement stmt  = conn.createStatement();
-            	ResultSet rs = stmt.executeQuery(sql);
-                ){
-        	
-        	if(FrontEnd.properties_currentPF.getText().equals("") || FrontEnd.properties_newPW.getText().equals("") || FrontEnd.properties_repeat_newPF.getText().equals("") ){
-        		
-    			Alert alert = new Alert(AlertType.WARNING);
-    			alert.setTitle("Notification");
-    			alert.setHeaderText(null);
-    			alert.setContentText("You must enter all fields with * ");
-    			
-    			alert.showAndWait();
-        		
-        	}else{
-        	
-        		while(rs.next()){
-        	if(FrontEnd.properties_currentPF.getText().equals(rs.getString("kod"))){
-        		
-        		if(FrontEnd.properties_newPW.getText().equals(FrontEnd.properties_repeat_newPF.getText())){
-        			
-        	        try {
-        	                Connection conn2 = this.connectionWithDatabase();
-        	                Statement stmt2  = conn.createStatement();
-        	            	stmt2.executeUpdate(sql2);
-        	            	
-        	            	FrontEnd.securityCode = FrontEnd.properties_newPW.getText();
-        	        	
-        	        }catch (SQLException s) {
-        	                    System.out.println(s.getMessage());
-        	                }
-        			
-        			Alert alert = new Alert(AlertType.INFORMATION);
-        			alert.setTitle("Notification");
-        			alert.setHeaderText(null);
-        			alert.setContentText("You have successfully changed Security code.\nPlease login again.");
-        			
-        			alert.showAndWait();
-            		
-        			FrontEnd.properties_currentPF.clear();
-        			FrontEnd.properties_newPW.clear();
-        			FrontEnd.properties_repeat_newPF.clear();
-        			
-        			FrontEnd.startingStage.setScene(FrontEnd.security_codeScene);
-        			FrontEnd.startingStage.centerOnScreen();
-        	        
-        		}else{
-        			Alert alert = new Alert(AlertType.WARNING);
-        			alert.setTitle("Notification");
-        			alert.setHeaderText(null);
-        			alert.setContentText("The fields NEW SECURITY CODE and REPEAT NEW SECURITY CODE!");
-        			
-        			alert.showAndWait();
-        			
-        			FrontEnd.properties_currentPF.clear();
-        			FrontEnd.properties_newPW.clear();
-        			FrontEnd.properties_repeat_newPF.clear();
-        			
-        		}
-        		
-        		
-        	}else{
-    			Alert alert = new Alert(AlertType.WARNING);
-    			alert.setTitle("Notification");
-    			alert.setHeaderText(null);
-    			alert.setContentText("You entered wrong Current security code! ");
-    			
-    			alert.showAndWait();
-    			
-    			FrontEnd.properties_currentPF.clear();
-    			FrontEnd.properties_newPW.clear();
-    			FrontEnd.properties_repeat_newPF.clear();
-        			}
-        		}
-        	}	
-            
-                
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
-		
-	}
 	
 	public String returnBackCurrentSecurityCode(){
 		
@@ -1657,22 +1563,6 @@ public class BackEnd {
 	}
 	
 	
-	public void changeBackground(){
-		
-		String sql =  "UPDATE background SET background='"+FrontEnd.background+"' WHERE id=1;";
-		
-        try {
-                Connection conn = this.connectionWithDatabase();
-                Statement stmt  = conn.createStatement();
-            	stmt.executeUpdate(sql);
-                
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-		
-        }
-   
- //------------------------------------------------------------------------------------------------------------------------------------------------------       
-		
-	}
+
 
 }

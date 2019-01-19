@@ -7,16 +7,16 @@ public class User {
 	private final SimpleStringProperty id;
     private final SimpleStringProperty first_name;
     private final SimpleStringProperty last_name;
-    private final SimpleStringProperty ssn;
+    private final SimpleStringProperty pesel;
     private final SimpleStringProperty adress;
     private final SimpleStringProperty phone_number;
     private final SimpleStringProperty email;
 
-    public User(String id, String first_name, String last_name, String ssn, String adress, String phone_number, String email) {
+    public User(String id, String first_name, String last_name, String pesel, String adress, String phone_number, String email) {
     	this.id = new SimpleStringProperty(id);
         this.first_name = new SimpleStringProperty(first_name);
         this.last_name = new SimpleStringProperty(last_name);
-        this.ssn = new SimpleStringProperty(ssn);
+        this.pesel = new SimpleStringProperty(pesel);
         this.adress = new SimpleStringProperty(adress);
         this.phone_number = new SimpleStringProperty(phone_number);
         this.email = new SimpleStringProperty(email);
@@ -46,12 +46,12 @@ public class User {
     	last_name.set(fLast_name);
     }
     
-    public String getSsn() {
-        return ssn.get();
+    public String getPesel() {
+        return pesel.get();
     }
 
-    public void setSsn(String fSsn) {
-        ssn.set(fSsn);
+    public void setPesel(String fPesel) {
+        pesel.set(fPesel);
     }
     
     public String getAdress() {
@@ -66,7 +66,7 @@ public class User {
         return phone_number.get();
     }
 
-    public void setBroj_telefona(String fPhone_number) {
+    public void setPhone_number(String fPhone_number) {
     	phone_number.set(fPhone_number);
     }
     

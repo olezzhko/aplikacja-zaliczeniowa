@@ -41,7 +41,7 @@ public class FrontEnd extends Application {
 	//Navigation Users.New_user
 	static TextField firstnameTF;
 	static TextField lastnameTF;
-	static TextField ssnTF;
+	static TextField peselTF;
 	static TextField adressTF;
 	static TextField phone_numberTF;
 	static TextField emailTF;
@@ -54,8 +54,8 @@ public class FrontEnd extends Application {
 	static TextField firstnameTF2;
 	static Label lastnameL2;
 	static TextField lastnameTF2;
-	static Label ssnL2;
-	static TextField ssnTF2;
+	static Label peselL2;
+	static TextField peselTF2;
 	static Label adressL2;
 	static TextField adressTF2;
 	static Label phone_numberL2;
@@ -71,8 +71,8 @@ public class FrontEnd extends Application {
 	static TextField firstnameTF3;
 	static Label lastnameL3;
 	static TextField lastnameTF3;
-	static Label ssnL3;
-	static TextField ssnTF3;
+	static Label peselL3;
+	static TextField peselTF3;
 	static Label adressL3;
 	static TextField adressTF3;
 	static Label phone_numberL3;
@@ -88,8 +88,8 @@ public class FrontEnd extends Application {
 	static TextField firstnameTF4;
 	static Label lastnameL4;
 	static TextField lastnameTF4;
-	static Label ssnL4;
-	static TextField ssnTF4;
+	static Label peselL4;
+	static TextField peselTF4;
 	static Label adressL4;
 	static TextField adressTF4;
 	static Label phone_numberL4;
@@ -189,36 +189,37 @@ public class FrontEnd extends Application {
 			
 
 //MAIN navigation * --------------------------------------------------------------------------------------------------------------------
-			Button usersButton = new Button("Users",new ImageView(new Image("file:./Images/Icons/Users/MAIN.png")));
+			Button usersButton = new Button("Klienci");
 			usersButton.setMinSize(120, 35);
-			Button moviesButton = new Button("Movies",new ImageView(new Image("file:./Images/Icons/Movies/MAIN.png")));
+			Button moviesButton = new Button("Filmy");
 			moviesButton.setMinSize(120, 35);
-			Button rentalButton = new Button("Rental",new ImageView(new Image("file:./Images/Icons/Rental/MAIN.png")));
+			Button rentalButton = new Button("Wypożyczone");
 			rentalButton.setMinSize(120, 35);
-			Button propertiesButton = new Button("Properties",new ImageView(new Image("file:./Images/Icons/Properties/MAIN.png")));
-			propertiesButton.setMinSize(120, 35);
-			Button informationsButton = new Button("Informations",new ImageView(new Image("file:./Images/Icons/Informations/MAIN.png")));
+			//Button propertiesButton = new Button("Properties",new ImageView(new Image("file:./Images/Icons/Properties/MAIN.png")));
+			//propertiesButton.setMinSize(120, 35);
+			Button informationsButton = new Button("Informacje");
 			informationsButton.setMinSize(120, 35);
-			Button logoutButton = new Button("Logout",new ImageView(new Image("file:./Images/Icons/Logout/MAIN.png")));
+			Button logoutButton = new Button("Wyloguj");
 			logoutButton.setMinSize(60, 35);
 			
 			
 			HBox navigation_mainContainer = new HBox();
-			navigation_mainContainer.getChildren().addAll(usersButton,moviesButton,rentalButton,propertiesButton,informationsButton,logoutButton);
+			navigation_mainContainer.getChildren().addAll(usersButton,moviesButton,rentalButton,informationsButton,logoutButton);
+			//propertiesButton
 			navigation_mainContainer.setSpacing(5);
 			
 
 			
 //Navigation Users * --------------------------------------------------------------------------------------------------------------------
-			Button new_userButton = new Button("New user       ",new ImageView(new Image("file:./Images/Icons/Users/new.png")));
+			Button new_userButton = new Button("Nowy klient       ");
 			new_userButton.setMinSize(151, 30);
-			Button edit_userButton = new Button("Edit user       " ,new ImageView(new Image("file:./Images/Icons/Users/edit.png")));
+			Button edit_userButton = new Button("Edytuj klienta       ");
 			edit_userButton.setMinSize(151, 30);
-			Button show_userButton = new Button("Show user     ", new ImageView(new Image("file:./Images/Icons/Users/show.png")));
+			Button show_userButton = new Button("Pokaż klienta     ");
 			show_userButton.setMinSize(151, 30);
-			Button delete_userButton = new Button("Delete user    ",new ImageView(new Image("file:./Images/Icons/Users/delete.png")));
+			Button delete_userButton = new Button("Usun klienta   ");
 			delete_userButton.setMinSize(151, 30);
-			Button show_all_usersButton = new Button("Show all users",new ImageView(new Image("file:./Images/Icons/Users/all_users.png")));
+			Button show_all_usersButton = new Button("Pokaż wszystkich klientow");
 			show_all_usersButton.setMinSize(151, 30);
 			
 			VBox navigation_usersContainer = new VBox();
@@ -226,26 +227,26 @@ public class FrontEnd extends Application {
 			navigation_usersContainer.setSpacing(10);
 			
 //Navigation Users.New_user --------------------------------------------------------------------------------------------------------------------
-			Label addUserL = new Label("New user");
+			Label addUserL = new Label("Nowy klient");
 			addUserL.setStyle("-fx-font-size:21;-fx-text-fill: white");
 			
-			Label firstnameL = new Label("First name*");
+			Label firstnameL = new Label("Imię*");
 			firstnameTF = new TextField();
 			firstnameL.setStyle("-fx-text-fill: white");
 			
-			Label lastnameL = new Label("Last name*");
+			Label lastnameL = new Label("Nazwisko*");
 			lastnameL.setStyle("-fx-text-fill: white");
 			lastnameTF = new TextField();
 			
-			Label ssnL = new Label("Pesel*");
-			ssnL.setStyle("-fx-text-fill: white");
-			ssnTF = new TextField();
+			Label peselL = new Label("Pesel*");
+			peselL.setStyle("-fx-text-fill: white");
+			peselTF = new TextField();
 			
-			Label adressL = new Label("Adress*");
+			Label adressL = new Label("Adres*");
 			adressL.setStyle("-fx-text-fill: white");
 			adressTF = new TextField();
 			
-			Label phone_numberL = new Label("Phone number*");
+			Label phone_numberL = new Label("Telefon*");
 			phone_numberL.setStyle("-fx-text-fill: white");
 			phone_numberTF = new TextField();
 			
@@ -253,7 +254,7 @@ public class FrontEnd extends Application {
 			emailL.setStyle("-fx-text-fill: white");
 			emailTF = new TextField();
 			
-			Button addButton = new Button("Add");
+			Button addButton = new Button("Dodaj");
 			
 			GridPane new_userContainer = new GridPane();
 			new_userContainer.add(addUserL, 0, 0,2,1);
@@ -261,8 +262,8 @@ public class FrontEnd extends Application {
 			new_userContainer.add(firstnameTF, 1, 1);
 			new_userContainer.add(lastnameL, 0, 2);
 			new_userContainer.add(lastnameTF, 1, 2);
-			new_userContainer.add(ssnL, 0, 3);
-			new_userContainer.add(ssnTF, 1, 3);
+			new_userContainer.add(peselL, 0, 3);
+			new_userContainer.add(peselTF, 1, 3);
 			new_userContainer.add(adressL, 0, 4);
 			new_userContainer.add(adressTF, 1, 4);
 			new_userContainer.add(phone_numberL, 0, 5);
@@ -274,7 +275,7 @@ public class FrontEnd extends Application {
 			new_userContainer.setVgap(8);
 			
 		//Home page --------------------------------------------------------------------------------------------------------------------
-			Label homeText = new Label("Welcome in Movie Rental System!Select the desired function.");
+			Label homeText = new Label("Witamy w systemie wypożyczalni filmów. Wybierz odpowiednią opcję");
 			homeText.setStyle("-fx-font-size:21;-fx-text-fill: white");
 			StackPane homeTextContainer = new StackPane(homeText);
 			
@@ -287,40 +288,40 @@ public class FrontEnd extends Application {
 			navigationBody.setPadding(new Insets(20,20,20,20));
 			
 //Navigation User.Edit_user --------------------------------------------------------------------------------------------------------------------
-			Label editUserL2 = new Label("Edit user");
+			Label editUserL2 = new Label("Edytuj klienta");
 			editUserL2.setStyle("-fx-font-size:21;-fx-text-fill: white");
 			
-			idL2 = new Label("User ID*");
+			idL2 = new Label("ID klienta*");
 			idL2.setStyle("-fx-text-fill: white");
 			idTF2 = new TextField();
 
-			searchButton2 = new Button("Search");
+			searchButton2 = new Button("Szukaj");
 			
-			firstnameL2 = new Label("First name*");
+			firstnameL2 = new Label("Imię*");
 			firstnameL2.setStyle("-fx-text-fill: white");
 			firstnameL2.setDisable(true);
 			firstnameTF2 = new TextField();
 			firstnameTF2.setDisable(true);
 			
-			lastnameL2 = new Label("Last name*");
+			lastnameL2 = new Label("Nazwisko*");
 			lastnameL2.setStyle("-fx-text-fill: white");
 			lastnameL2.setDisable(true);
 			lastnameTF2 = new TextField();
 			lastnameTF2.setDisable(true);
 			
-			ssnL2 = new Label("Pesel*");
-			ssnL2.setStyle("-fx-text-fill: white");
-			ssnL2.setDisable(true);
-			ssnTF2 = new TextField();
-			ssnTF2.setDisable(true);
+			peselL2 = new Label("Pesel*");
+			peselL2.setStyle("-fx-text-fill: white");
+			peselL2.setDisable(true);
+			peselTF2 = new TextField();
+			peselTF2.setDisable(true);
 			
-			adressL2 = new Label("Adress*");
+			adressL2 = new Label("Adres*");
 			adressL2.setStyle("-fx-text-fill: white");
 			adressL2.setDisable(true);
 			adressTF2 = new TextField();
 			adressTF2.setDisable(true);
 			
-			phone_numberL2 = new Label("Phone number*");
+			phone_numberL2 = new Label("Telefon*");
 			phone_numberL2.setStyle("-fx-text-fill: white");
 			phone_numberL2.setDisable(true);
 			phone_numberTF2 = new TextField();
@@ -332,10 +333,10 @@ public class FrontEnd extends Application {
 			emailTF2 = new TextField();
 			emailTF2.setDisable(true);
 			
-			editButton2 = new Button("Edit");
+			editButton2 = new Button("Edytuj");
 			editButton2.setDisable(true);
 			
-			changeUserButton2 = new Button("Change user");
+			changeUserButton2 = new Button("Zmień klienta");
 			changeUserButton2.setDisable(true);
 			
 			
@@ -348,8 +349,8 @@ public class FrontEnd extends Application {
 			edit_userContainer.add(firstnameTF2, 1, 2);
 			edit_userContainer.add(lastnameL2, 0, 3);
 			edit_userContainer.add(lastnameTF2, 1, 3);
-			edit_userContainer.add(ssnL2, 0, 4);
-			edit_userContainer.add(ssnTF2, 1, 4);
+			edit_userContainer.add(peselL2, 0, 4);
+			edit_userContainer.add(peselTF2, 1, 4);
 			edit_userContainer.add(adressL2, 0, 5);
 			edit_userContainer.add(adressTF2, 1, 5);
 			edit_userContainer.add(phone_numberL2, 0, 6);
@@ -365,44 +366,44 @@ public class FrontEnd extends Application {
 			
 			
 //Navigation Users.Show_user --------------------------------------------------------------------------------------------------------------------
-			Label show_userL3 = new Label("Show user");
+			Label show_userL3 = new Label("Pokaż klienta");
 			show_userL3.setStyle("-fx-font-size:21;-fx-text-fill: white");
 			
-			Label idL3 = new Label("User ID*");
+			Label idL3 = new Label("ID klienta*");
 			idL3.setStyle("-fx-text-fill: white");
 			idTF3 = new TextField();
 
-			Button searchButton3 = new Button("Search");
+			Button searchButton3 = new Button("Szukaj");
 			
-			firstnameL3 = new Label("First name*");
+			firstnameL3 = new Label("Imię*");
 			firstnameL3.setStyle("-fx-text-fill: white");
 			firstnameL3.setDisable(true);
 			firstnameTF3 = new TextField();
 			firstnameTF3.setDisable(true);
 			firstnameTF3.setEditable(false);
 			
-			lastnameL3 = new Label("Last name*");
+			lastnameL3 = new Label("Nazwisko*");
 			lastnameL3.setStyle("-fx-text-fill: white");
 			lastnameL3.setDisable(true);
 			lastnameTF3 = new TextField();
 			lastnameTF3.setDisable(true);
 			lastnameTF3.setEditable(false);
 			
-			ssnL3 = new Label("Pesel*");
-			ssnL3.setStyle("-fx-text-fill: white");
-			ssnL3.setDisable(true);
-			ssnTF3 = new TextField();
-			ssnTF3.setDisable(true);
-			ssnTF3.setEditable(false);
+			peselL3 = new Label("Pesel*");
+			peselL3.setStyle("-fx-text-fill: white");
+			peselL3.setDisable(true);
+			peselTF3 = new TextField();
+			peselTF3.setDisable(true);
+			peselTF3.setEditable(false);
 			
-			adressL3 = new Label("Adress*");
+			adressL3 = new Label("Adres*");
 			adressL3.setStyle("-fx-text-fill: white");
 			adressL3.setDisable(true);
 			adressTF3 = new TextField();
 			adressTF3.setDisable(true);
 			adressTF3.setEditable(false);
 			
-			phone_numberL3 = new Label("Phone number*");
+			phone_numberL3 = new Label("Telefon*");
 			phone_numberL3.setStyle("-fx-text-fill: white");
 			phone_numberL3.setDisable(true);
 			phone_numberTF3 = new TextField();
@@ -426,8 +427,8 @@ public class FrontEnd extends Application {
 			show_userContainer.add(firstnameTF3, 1, 2);
 			show_userContainer.add(lastnameL3, 0, 3);
 			show_userContainer.add(lastnameTF3, 1, 3);
-			show_userContainer.add(ssnL3, 0, 4);
-			show_userContainer.add(ssnTF3, 1, 4);
+			show_userContainer.add(peselL3, 0, 4);
+			show_userContainer.add(peselTF3, 1, 4);
 			show_userContainer.add(adressL3, 0, 5);
 			show_userContainer.add(adressTF3, 1, 5);
 			show_userContainer.add(phone_numberL3, 0, 6);
@@ -440,44 +441,44 @@ public class FrontEnd extends Application {
 			
 			
 //Navigation Users.Delete_user --------------------------------------------------------------------------------------------------------------------
-			Label delete_userL4 = new Label("Delete user");
+			Label delete_userL4 = new Label("Usuń klienta");
 			delete_userL4.setStyle("-fx-font-size:21;-fx-text-fill: white");
 			
-			idL4 = new Label("User ID*");
+			idL4 = new Label("ID klienta*");
 			idL4.setStyle("-fx-text-fill: white");
 			idTF4 = new TextField();
 
-			searchButton4 = new Button("Search");
+			searchButton4 = new Button("Szukaj");
 			
-			firstnameL4 = new Label("First name*");
+			firstnameL4 = new Label("Imię*");
 			firstnameL4.setStyle("-fx-text-fill: white");
 			firstnameL4.setDisable(true);
 			firstnameTF4 = new TextField();
 			firstnameTF4.setDisable(true);
 			firstnameTF4.setEditable(false);
 			
-			lastnameL4 = new Label("Last name*");
+			lastnameL4 = new Label("Nazwisko*");
 			lastnameL4.setStyle("-fx-text-fill: white");
 			lastnameL4.setDisable(true);
 			lastnameTF4 = new TextField();
 			lastnameTF4.setDisable(true);
 			lastnameTF4.setEditable(false);
 			
-			ssnL4 = new Label("Pesel*");
-			ssnL4.setStyle("-fx-text-fill: white");
-			ssnL4.setDisable(true);
-			ssnTF4 = new TextField();
-			ssnTF4.setDisable(true);
-			ssnTF4.setEditable(false);
+			peselL4 = new Label("Pesel*");
+			peselL4.setStyle("-fx-text-fill: white");
+			peselL4.setDisable(true);
+			peselTF4 = new TextField();
+			peselTF4.setDisable(true);
+			peselTF4.setEditable(false);
 			
-			adressL4 = new Label("Adress*");
+			adressL4 = new Label("Adres*");
 			adressL4.setStyle("-fx-text-fill: white");
 			adressL4.setDisable(true);
 			adressTF4 = new TextField();
 			adressTF4.setDisable(true);
 			adressTF4.setEditable(false);
 			
-			phone_numberL4 = new Label("Phone number*");
+			phone_numberL4 = new Label("Telefon*");
 			phone_numberL4.setStyle("-fx-text-fill: white");
 			phone_numberL4.setDisable(true);
 			phone_numberTF4 = new TextField();
@@ -491,10 +492,10 @@ public class FrontEnd extends Application {
 			emailTF4.setDisable(true);
 			emailTF4.setEditable(false);
 			
-			deleteButton4 = new Button("Delete");
+			deleteButton4 = new Button("Usuń");
 			deleteButton4.setDisable(true);
 			
-			changeUserButton4 = new Button("Change user");
+			changeUserButton4 = new Button("Zmień klienta");
 			changeUserButton4.setDisable(true);
 			
 			
@@ -507,8 +508,8 @@ public class FrontEnd extends Application {
 			delete_userContainer.add(firstnameTF4, 1, 2);
 			delete_userContainer.add(lastnameL4, 0, 3);
 			delete_userContainer.add(lastnameTF4, 1, 3);
-			delete_userContainer.add(ssnL4, 0, 4);
-			delete_userContainer.add(ssnTF4, 1, 4);
+			delete_userContainer.add(peselL4, 0, 4);
+			delete_userContainer.add(peselTF4, 1, 4);
 			delete_userContainer.add(adressL4, 0, 5);
 			delete_userContainer.add(adressTF4, 1, 5);
 			delete_userContainer.add(phone_numberL4, 0, 6);
@@ -524,35 +525,35 @@ public class FrontEnd extends Application {
 			
 			
 //Navigation User.Show_all_users --------------------------------------------------------------------------------------------------------------------
-			Label show_all_usersL = new Label("Show all users");
+			Label show_all_usersL = new Label("Pokaż wszystkich klientów");
 			show_all_usersL.setStyle("-fx-font-size:21;-fx-text-fill: white");
 			
-	        TableColumn idColumn = new TableColumn("User ID");
+	        TableColumn idColumn = new TableColumn("ID klienta");
 	        idColumn.setMinWidth(38);
 	        idColumn.setCellValueFactory(
 	                new PropertyValueFactory<>("id"));
 			
-	        TableColumn first_nameColumn = new TableColumn("First name");
+	        TableColumn first_nameColumn = new TableColumn("Imię");
 	        first_nameColumn.setMinWidth(80);
 	        first_nameColumn.setCellValueFactory(
 	                new PropertyValueFactory<>("first_name"));
 	 
-	        TableColumn last_nameColumn = new TableColumn("Last name");
+	        TableColumn last_nameColumn = new TableColumn("Nazwisko");
 	        last_nameColumn.setMinWidth(90);
 	        last_nameColumn.setCellValueFactory(
 	                new PropertyValueFactory<>("last_name"));
 	 
-	        TableColumn ssnColumn = new TableColumn("Pesel");
-	        ssnColumn.setMinWidth(115);
-	        ssnColumn.setCellValueFactory(
+	        TableColumn peselColumn = new TableColumn("Pesel");
+	        peselColumn.setMinWidth(115);
+	        peselColumn.setCellValueFactory(
 	                new PropertyValueFactory<>("pesel"));
 	        
-	        TableColumn adressColumn = new TableColumn("Adress");
+	        TableColumn adressColumn = new TableColumn("Adres");
 	        adressColumn.setMinWidth(80);
 	        adressColumn.setCellValueFactory(
 	                new PropertyValueFactory<>("adress"));
 	        
-	        TableColumn phone_numberColumn = new TableColumn("Phone number");
+	        TableColumn phone_numberColumn = new TableColumn("Telefon");
 	        phone_numberColumn.setMinWidth(90);
 	        phone_numberColumn.setCellValueFactory(
 	                new PropertyValueFactory<>("phone_number"));
@@ -564,7 +565,7 @@ public class FrontEnd extends Application {
 	        
 	 
 	        usersTable.setItems(usersData);
-	        usersTable.getColumns().addAll(idColumn, first_nameColumn, last_nameColumn, ssnColumn, adressColumn, phone_numberColumn, emailColumn);
+	        usersTable.getColumns().addAll(idColumn, first_nameColumn, last_nameColumn, peselColumn, adressColumn, phone_numberColumn, emailColumn);
 			usersTable.setMinWidth(700);
 			
 			VBox show_all_usersContainer = new VBox();
@@ -574,13 +575,13 @@ public class FrontEnd extends Application {
 			
 			
 //Navigation Movies ----------------------------------------------------------------------------------------------------------------------
-	        Button add_movieButton = new Button("Add movie              ",new ImageView(new Image("file:./Images/Icons/Movies/add.png")));
+	        Button add_movieButton = new Button("Dodaj film              ");
 	        add_movieButton.setMinSize(151, 30);
-	        Button find_movieButton = new Button("Find movie          ",new ImageView(new Image("file:./Images/Icons/Movies/find.png")));
+	        Button find_movieButton = new Button("Znajdz film          ");
 	        find_movieButton.setMinSize(151, 30);
-	        Button edit_movieButton = new Button("Edit/Delete movie ",new ImageView(new Image("file:./Images/Icons/Movies/edit_delete.png")));
+	        Button edit_movieButton = new Button("Edytuj/Usuń film ");
 	        edit_movieButton.setMinSize(151, 30);
-	        Button show_all_moviesButton = new Button("Show all movies   ",new ImageView(new Image("file:./Images/Icons/Movies/all.png")));
+	        Button show_all_moviesButton = new Button("Pokaż wszystkie nfilmy   ");
 	        show_all_moviesButton.setMinSize(151, 30);
 	        
 			VBox navigation_moviesContainer = new VBox();
@@ -588,42 +589,42 @@ public class FrontEnd extends Application {
 			navigation_moviesContainer.setSpacing(10);
 			
 //Navigation Movies.Add_movie --------------------------------------------------------------------------------------------------------------------
-			Label add_movieL = new Label("Add movie");
+			Label add_movieL = new Label("Dodaj film");
 			add_movieL.setStyle("-fx-font-size:21;-fx-text-fill: white");
 			
-			Label movieTitleL = new Label("Title*");
+			Label movieTitleL = new Label("Tytuł*");
 			movieTitleL.setStyle("-fx-text-fill: white");
 			movieTitleTF = new TextField();
 			
-			Label genreL = new Label("Genre*");
+			Label genreL = new Label("Żanr*");
 			genreL.setStyle("-fx-text-fill: white");
 			genreTF =new TextField();
 			
-			Label descriptionL = new Label("Description");
+			Label descriptionL = new Label("Opis");
 			descriptionL.setStyle("-fx-text-fill: white");
 	        descriptionTF = new TextField();
 	        
-	        Label release_yearL = new Label("Release year*");
+	        Label release_yearL = new Label("Rok*");
 	        release_yearL.setStyle("-fx-text-fill: white");
 	        release_yearTF = new TextField();
 	        
-	        Label languageL = new Label("Language");
+	        Label languageL = new Label("Język");
 	        languageL.setStyle("-fx-text-fill: white");
 	        languageTF = new TextField();
 	        
-	        Label rating_imdbL = new Label("IMDB rating*");
+	        Label rating_imdbL = new Label("IMDB ocena*");
 	        rating_imdbL.setStyle("-fx-text-fill: white");
 	        rating_imdbTF = new TextField();
 	        
-	        Label duration_minutesL = new Label("Duration(minutes)*");
+	        Label duration_minutesL = new Label("Czas trwania /n(minuty)*");
 	        duration_minutesL.setStyle("-fx-text-fill: white");
 	        duration_minutesTF = new TextField();
 	        
-	        Label main_actorsL = new Label("Main actors");
+	        Label main_actorsL = new Label("Obsada");
 	        main_actorsL.setStyle("-fx-text-fill: white");
 	        main_actorsTF = new TextField();
 	        
-	        Button add_mButton = new Button("Add");
+	        Button add_mButton = new Button("Dodaj");
 	        
 	        
 			GridPane new_movieContainer = new GridPane();
@@ -651,7 +652,7 @@ public class FrontEnd extends Application {
 			
 			
 //Navigation Movies.Find_movie --------------------------------------------------------------------------------------------------------------------
-			Label find_titleL = new Label("Find movie");
+			Label find_titleL = new Label("Znajdz film");
 			find_titleL.setStyle("-fx-font-size:21;-fx-text-fill: white");
 			
 			find_idCB = new CheckBox("ID");
@@ -659,27 +660,27 @@ public class FrontEnd extends Application {
 			find_idTF = new TextField();
 			find_idTF.setDisable(true);
 			
-			find_titleCB = new CheckBox("Title");
+			find_titleCB = new CheckBox("Tytuł");
 			find_titleCB.setStyle("-fx-text-fill: white");
 			find_titleCB.setSelected(true);
 			find_titleTF = new TextField();
 			
-			find_genreCB = new CheckBox("Genre");
+			find_genreCB = new CheckBox("Żanr");
 			find_genreCB.setStyle("-fx-text-fill: white");
 			find_genreTF = new TextField();
 			find_genreTF.setDisable(true);
 			
-			find_release_yearCB = new CheckBox("Release year");
+			find_release_yearCB = new CheckBox("Rok");
 			find_release_yearCB.setStyle("-fx-text-fill: white");
 			find_release_yearTF = new TextField();
 			find_release_yearTF.setDisable(true);
 			
-			find_main_actorCB = new CheckBox("Main actor");
+			find_main_actorCB = new CheckBox("Obsada");
 			find_main_actorCB.setStyle("-fx-text-fill: white");
 			find_main_actorTF = new TextField();
 			find_main_actorTF.setDisable(true);
 			
-			Button find_searchButton = new Button("Search");
+			Button find_searchButton = new Button("Szukaj");
 			find_searchButton.setPrefSize(100, 20);
 			
 			
@@ -689,57 +690,57 @@ public class FrontEnd extends Application {
 	        idColumn2.setCellValueFactory(
 	                new PropertyValueFactory<>("id"));
 			
-	        TableColumn titleColumn2 = new TableColumn("Title");
+	        TableColumn titleColumn2 = new TableColumn("Tytuł");
 	        titleColumn2.setMinWidth(180);
 	        titleColumn2.setCellValueFactory(
 	                new PropertyValueFactory<>("title"));
 	 
-	        TableColumn genreColumn2 = new TableColumn("Genre");
+	        TableColumn genreColumn2 = new TableColumn("Żanr");
 	        genreColumn2.setMinWidth(80);
 	        genreColumn2.setCellValueFactory(
 	                new PropertyValueFactory<>("genre"));
 	 
-	        TableColumn descriptionColumn2 = new TableColumn("Description");
+	        TableColumn descriptionColumn2 = new TableColumn("Opis");
 	        descriptionColumn2.setMinWidth(200);
 	        descriptionColumn2.setCellValueFactory(
 	                new PropertyValueFactory<>("description"));
 	        
-	        TableColumn release_yearColumn2 = new TableColumn("Release year");
+	        TableColumn release_yearColumn2 = new TableColumn("Rok");
 	        release_yearColumn2.setMinWidth(100);
 	        release_yearColumn2.setCellValueFactory(
 	                new PropertyValueFactory<>("release_year"));
 	        
-	        TableColumn languageColumn2 = new TableColumn("Language");
+	        TableColumn languageColumn2 = new TableColumn("Język");
 	        languageColumn2.setMinWidth(50);
 	        languageColumn2.setCellValueFactory(
 	                new PropertyValueFactory<>("language"));
 	        
-	        TableColumn imdb_ratingColumn2 = new TableColumn("IMDB rating");
+	        TableColumn imdb_ratingColumn2 = new TableColumn("IMDB ocena");
 	        imdb_ratingColumn2.setMinWidth(80);
 	        imdb_ratingColumn2.setCellValueFactory(
 	                new PropertyValueFactory<>("imdb_rating"));
 	        
-	        TableColumn duration_minutesColumn2 = new TableColumn("Duration(minutes)");
+	        TableColumn duration_minutesColumn2 = new TableColumn("Czas trwania/n(minuty)");
 	        duration_minutesColumn2.setMinWidth(120);
 	        duration_minutesColumn2.setCellValueFactory(
 	                new PropertyValueFactory<>("duration_minutes"));
 	        
-	        TableColumn main_actorsColumn2 = new TableColumn("Main actors");
+	        TableColumn main_actorsColumn2 = new TableColumn("Obsada");
 	        main_actorsColumn2.setMinWidth(200);
 	        main_actorsColumn2.setCellValueFactory(
 	                new PropertyValueFactory<>("main_actors"));
 	        
-	        TableColumn availbaleColumn2 = new TableColumn("Availbale");
+	        TableColumn availbaleColumn2 = new TableColumn("Dostępność");
 	        availbaleColumn2.setMinWidth(60);
 	        availbaleColumn2.setCellValueFactory(
 	                new PropertyValueFactory<>("availbale"));
 	        
-	        TableColumn last_rented_idColumn2 = new TableColumn("Last rented(ID)");
+	        TableColumn last_rented_idColumn2 = new TableColumn("Ostatni wypożyczany (ID)");
 	        last_rented_idColumn2.setMinWidth(150);
 	        last_rented_idColumn2.setCellValueFactory(
 	                new PropertyValueFactory<>("last_rental_id"));
 	        
-	        TableColumn date_of_rentingColumn2 = new TableColumn("Date of renting(day month year)");
+	        TableColumn date_of_rentingColumn2 = new TableColumn("Data wypożyczenia");
 	        date_of_rentingColumn2.setMinWidth(252);
 	        date_of_rentingColumn2.setCellValueFactory(
 	                new PropertyValueFactory<>("last_rental_date"));
@@ -768,57 +769,57 @@ public class FrontEnd extends Application {
 			
 			
 //Navigation Movies.Edit/Delete_movie --------------------------------------------------------------------------------------------------------------------
-			Label izmeni_filmL2 = new Label("Edit movie");
+			Label izmeni_filmL2 = new Label("Edytuj film");
 			izmeni_filmL2.setStyle("-fx-font-size:21;-fx-text-fill: white");
 			
-			edit_idL2 = new Label("Movie ID");
+			edit_idL2 = new Label("ID Filmu");
 			edit_idL2.setStyle("-fx-text-fill: white");
 			edit_idTF2 = new TextField();
 			edit_searchButton2 = new Button("Search");
 			
-			movieTitleL2 = new Label("Title*");
+			movieTitleL2 = new Label("Tytuł*");
 			movieTitleL2.setStyle("-fx-text-fill: white");
 			movieTitleL2.setDisable(true);
 			movieTitleTF2 = new TextField();
 			movieTitleTF2.setDisable(true);
 			
-			genreL2 = new Label("Genre*");
+			genreL2 = new Label("Żanr*");
 			genreL2.setStyle("-fx-text-fill: white");
 			genreL2.setDisable(true);
 			genreTF2 =new TextField();
 			genreTF2.setDisable(true);
 			
-			descriptionL2 = new Label("Description");
+			descriptionL2 = new Label("Opis");
 			descriptionL2.setStyle("-fx-text-fill: white");
 			descriptionL2.setDisable(true);
 	        descriptionTF2 = new TextField();
 	        descriptionTF2.setDisable(true);
 	        
-	        release_yearL2 = new Label("Release year*");
+	        release_yearL2 = new Label("Rok*");
 	        release_yearL2.setStyle("-fx-text-fill: white");
 	        release_yearL2.setDisable(true);
 	        release_yearTF2 = new TextField();
 	        release_yearTF2.setDisable(true);
 	        
-	        languageL2 = new Label("Language");
+	        languageL2 = new Label("Język");
 	        languageL2.setStyle("-fx-text-fill: white");
 	        languageL2.setDisable(true);
 	        languageTF2 = new TextField();
 	        languageTF2.setDisable(true);
 	        
-	        rating_imdbL2 = new Label("IMDB rating*");
+	        rating_imdbL2 = new Label("IMDB ocena*");
 	        rating_imdbL2.setStyle("-fx-text-fill: white");
 	        rating_imdbL2.setDisable(true);
 	        rating_imdbTF2 = new TextField();
 	        rating_imdbTF2.setDisable(true);
 	        
-	        duration_minutesL2 = new Label("Duration(minutes)*");
+	        duration_minutesL2 = new Label("Czas trwania*");
 	        duration_minutesL2.setStyle("-fx-text-fill: white");
 	        duration_minutesL2.setDisable(true);
 	        duration_minutesTF2 = new TextField();
 	        duration_minutesTF2.setDisable(true);
 	        
-	        main_actorsL2 = new Label("Main actors");
+	        main_actorsL2 = new Label("Obsada");
 	        main_actorsL2.setStyle("-fx-text-fill: white");
 	        main_actorsL2.setDisable(true);
 	        main_actorsTF2 = new TextField();
@@ -827,7 +828,7 @@ public class FrontEnd extends Application {
 	        edit_fDugme2 = new Button("Edit");
 	        edit_fDugme2.setDisable(true);
 	        
-	        edit_change_movieButton = new Button("Change movie");
+	        edit_change_movieButton = new Button("Zmień film");
 	        edit_change_movieButton.setDisable(true);
 	        
 	        edit_deleteButton = new Button("Delete");
@@ -864,7 +865,7 @@ public class FrontEnd extends Application {
 			
 			
 //Navigation Movies.Show_all_movies --------------------------------------------------------------------------------------------------------------------
-			Label show_all_moviesL = new Label("Show all movies");
+			Label show_all_moviesL = new Label("Pokaż wszystkie filmy");
 			show_all_moviesL.setStyle("-fx-font-size:21;-fx-text-fill: white");
 			
 	        TableColumn idColumn3 = new TableColumn("ID");
@@ -872,57 +873,57 @@ public class FrontEnd extends Application {
 	        idColumn3.setCellValueFactory(
 	                new PropertyValueFactory<>("id"));
 			
-	        TableColumn titleColumn3 = new TableColumn("Title");
+	        TableColumn titleColumn3 = new TableColumn("Tytuł");
 	        titleColumn3.setMinWidth(180);
 	        titleColumn3.setCellValueFactory(
 	                new PropertyValueFactory<>("title"));
 	 
-	        TableColumn genreColumn3 = new TableColumn("Genre");
+	        TableColumn genreColumn3 = new TableColumn("Żanr");
 	        genreColumn3.setMinWidth(80);
 	        genreColumn3.setCellValueFactory(
 	                new PropertyValueFactory<>("genre"));
 	 
-	        TableColumn descriptionColumn3 = new TableColumn("Description");
+	        TableColumn descriptionColumn3 = new TableColumn("Opis");
 	        descriptionColumn3.setMinWidth(300);
 	        descriptionColumn3.setCellValueFactory(
 	                new PropertyValueFactory<>("description"));
 	        
-	        TableColumn release_yearColumn3 = new TableColumn("Release year");
+	        TableColumn release_yearColumn3 = new TableColumn("Rok");
 	        release_yearColumn3.setMinWidth(40);
 	        release_yearColumn3.setCellValueFactory(
 	                new PropertyValueFactory<>("release_year"));
 	        
-	        TableColumn languageColumn3 = new TableColumn("language");
+	        TableColumn languageColumn3 = new TableColumn("Język");
 	        languageColumn3.setMinWidth(60);
 	        languageColumn3.setCellValueFactory(
 	                new PropertyValueFactory<>("language"));
 	        
-	        TableColumn imdb_ratingColumn3 = new TableColumn("IMDB rating");
+	        TableColumn imdb_ratingColumn3 = new TableColumn("IMDB ocena");
 	        imdb_ratingColumn3.setMinWidth(80);
 	        imdb_ratingColumn3.setCellValueFactory(
 	                new PropertyValueFactory<>("imdb_rating"));
 	        
-	        TableColumn duration_minutesColumn3 = new TableColumn("Duration(minutes)");
+	        TableColumn duration_minutesColumn3 = new TableColumn("Czas trwania (minuty)");
 	        duration_minutesColumn3.setMinWidth(80);
 	        duration_minutesColumn3.setCellValueFactory(
 	                new PropertyValueFactory<>("duration_minutes"));
 	        
-	        TableColumn main_actorsColumn3 = new TableColumn("Main actors");
+	        TableColumn main_actorsColumn3 = new TableColumn("Obsada");
 	        main_actorsColumn3.setMinWidth(300);
 	        main_actorsColumn3.setCellValueFactory(
 	                new PropertyValueFactory<>("main_actors"));
 	        
-	        TableColumn availbaleColumn3 = new TableColumn("Availbale");
+	        TableColumn availbaleColumn3 = new TableColumn("Dostępność");
 	        availbaleColumn3.setMinWidth(60);
 	        availbaleColumn3.setCellValueFactory(
 	                new PropertyValueFactory<>("availbale"));
 	        
-	        TableColumn last_rental_idColumn3 = new TableColumn("Last rental(ID)");
+	        TableColumn last_rental_idColumn3 = new TableColumn("Ostatni wypożyczany (ID)");
 	        last_rental_idColumn3.setMinWidth(80);
 	        last_rental_idColumn3.setCellValueFactory(
 	                new PropertyValueFactory<>("last_rental_id"));
 	        
-	        TableColumn last_date_of_rentingColumn3 = new TableColumn("Date of renting(day month year)");
+	        TableColumn last_date_of_rentingColumn3 = new TableColumn("Data wypożyczenia");
 	        last_date_of_rentingColumn3.setMinWidth(80);
 	        last_date_of_rentingColumn3.setCellValueFactory(
 	                new PropertyValueFactory<>("last_rental_date"));
@@ -937,13 +938,13 @@ public class FrontEnd extends Application {
 			
 			
 //Navigation Rental * --------------------------------------------------------------------------------------------------------------------
-			Button rental_movieButton = new Button("Rental movie   ",new ImageView(new Image("file:./Images/Icons/Rental/rental.png")));
+			Button rental_movieButton = new Button("Wypożyczenie filmu   ");
 			rental_movieButton.setMinSize(151, 30);
 			
-			Button return_back_movieButton = new Button("Return back \nmovie ",new ImageView(new Image("file:./Images/Icons/Rental/return_back.png")));
+			Button return_back_movieButton = new Button("Zwróć film");
 			return_back_movieButton.setMinSize(151, 30);
 			
-			Button list_of_rental_moviesButton = new Button("List of rental \nmovies",new ImageView(new Image("file:./Images/Icons/Rental/list.png")));
+			Button list_of_rental_moviesButton = new Button("List wypożyczonych \nfilmów");
 			list_of_rental_moviesButton.setMinSize(151, 30);
 			
 			VBox rentalContainer = new VBox();
@@ -952,18 +953,18 @@ public class FrontEnd extends Application {
 			
 			
 //Navigation Rental.Rental_movie --------------------------------------------------------------------------------------------------------------------
-			Label rental_movieL = new Label("Rental movie");
+			Label rental_movieL = new Label("Wypożyczenie filmu");
 			rental_movieL.setStyle("-fx-font-size:21;-fx-text-fill: white");
 			
-			Label rental_movie_idL = new Label("Movie ID*");
+			Label rental_movie_idL = new Label("ID Filmu*");
 			rental_movie_idL.setStyle("-fx-text-fill: white");
 			rentalMovie_id_movieTF = new TextField();
 			
-			Label rental_user_id = new Label("User ID*");
+			Label rental_user_id = new Label("ID Klienta*");
 			rental_user_id.setStyle("-fx-text-fill: white");
 			rentalMovie_id_userTF = new TextField();
 			
-			Button rental_rentalButton = new Button("Rental");
+			Button rental_rentalButton = new Button("Wypożeczenie");
 			
 			
 			GridPane rental_movieContainer = new GridPane();
@@ -978,13 +979,13 @@ public class FrontEnd extends Application {
 			
 			
 //Navigation Rental.Return_back_movie --------------------------------------------------------------------------------------------------------------------
-			Label return_back_movieL = new Label("Return back movie");
+			Label return_back_movieL = new Label("Zwróc film");
 			return_back_movieL.setStyle("-fx-font-size:21;-fx-text-fill: white");
 			
-			Label return_movie_idL = new Label("Movie ID*");
+			Label return_movie_idL = new Label("ID filmu*");
 			return_movie_idL.setStyle("-fx-text-fill: white");
 			
-			Button vrati_film_vratiDugme = new Button("Return back");
+			Button vrati_film_vratiDugme = new Button("Zwróć");
 			
 			returnBackMovie_idMovieTF = new TextField();
 			
@@ -998,7 +999,7 @@ public class FrontEnd extends Application {
 			
 			
 //Navigation Rental.List_of_rental_movies --------------------------------------------------------------------------------------------------------------------
-			Label rental_list_titleL = new Label("List of rental movies");
+			Label rental_list_titleL = new Label("Lista wypożyczonych filmów");
 			rental_list_titleL.setStyle("-fx-font-size:21;-fx-text-fill: white");
 			
 	        TableColumn idColumn4 = new TableColumn("ID");
@@ -1006,27 +1007,27 @@ public class FrontEnd extends Application {
 	        idColumn4.setCellValueFactory(
 	                new PropertyValueFactory<>("id"));
 			
-	        TableColumn titleColumn4 = new TableColumn("Title");
+	        TableColumn titleColumn4 = new TableColumn("Tytuł");
 	        titleColumn4.setMinWidth(180);
 	        titleColumn4.setCellValueFactory(
 	                new PropertyValueFactory<>("title"));
 	 
-	        TableColumn genreColumn4 = new TableColumn("Genre");
+	        TableColumn genreColumn4 = new TableColumn("Żanr");
 	        genreColumn4.setMinWidth(80);
 	        genreColumn4.setCellValueFactory(
 	                new PropertyValueFactory<>("genre"));
 	 
-	        TableColumn descriptionColumn4 = new TableColumn("Description");
+	        TableColumn descriptionColumn4 = new TableColumn("Opis");
 	        descriptionColumn4.setMinWidth(400);
 	        descriptionColumn4.setCellValueFactory(
 	                new PropertyValueFactory<>("description"));
 	        
-	        TableColumn release_year4 = new TableColumn("Release year");
+	        TableColumn release_year4 = new TableColumn("Rok");
 	        release_year4.setMinWidth(40);
 	        release_year4.setCellValueFactory(
 	                new PropertyValueFactory<>("release_year"));
 	        
-	        TableColumn languageColumn4 = new TableColumn("Language");
+	        TableColumn languageColumn4 = new TableColumn("Język");
 	        languageColumn4.setMinWidth(60);
 	        languageColumn4.setCellValueFactory(
 	                new PropertyValueFactory<>("language"));
@@ -1036,27 +1037,27 @@ public class FrontEnd extends Application {
 	        imdb_ratingColumn4.setCellValueFactory(
 	                new PropertyValueFactory<>("imdb_rating"));
 	        
-	        TableColumn duration_minutesColumn4 = new TableColumn("Duration(minutes)");
+	        TableColumn duration_minutesColumn4 = new TableColumn("Czas trwania");
 	        duration_minutesColumn4.setMinWidth(80);
 	        duration_minutesColumn4.setCellValueFactory(
 	                new PropertyValueFactory<>("duration_minutes"));
 	        
-	        TableColumn main_actorsColumn4 = new TableColumn("Main actors");
+	        TableColumn main_actorsColumn4 = new TableColumn("Obsada");
 	        main_actorsColumn4.setMinWidth(400);
 	        main_actorsColumn4.setCellValueFactory(
 	                new PropertyValueFactory<>("main_actors"));
 	        
-	        TableColumn availbaleColumn4 = new TableColumn("Availbale");
+	        TableColumn availbaleColumn4 = new TableColumn("Dostępność");
 	        availbaleColumn4.setMinWidth(60);
 	        availbaleColumn4.setCellValueFactory(
 	                new PropertyValueFactory<>("availbale"));
 	        
-	        TableColumn last_rental_idColumn4 = new TableColumn("Last rental(id)");
+	        TableColumn last_rental_idColumn4 = new TableColumn("Ostatni wypożyczany");
 	        last_rental_idColumn4.setMinWidth(80);
 	        last_rental_idColumn4.setCellValueFactory(
 	                new PropertyValueFactory<>("last_rental_id"));
 	        
-	        TableColumn last_date_rentalColumn4 = new TableColumn("Rental date(day month year)");
+	        TableColumn last_date_rentalColumn4 = new TableColumn("Data wypożeczenia");
 	        last_date_rentalColumn4.setMinWidth(80);
 	        last_date_rentalColumn4.setCellValueFactory(
 	                new PropertyValueFactory<>("last_rental_date"));
@@ -1072,72 +1073,72 @@ public class FrontEnd extends Application {
 	        
 	        
 //Navigation Properties * --------------------------------------------------------------------------------------------------------------------
-	        Button change_security_codeButton = new Button("Change                  \nsecurity code",new ImageView(new Image("file:./Images/Icons/Properties/Security_code.png")));
-	        change_security_codeButton.setMinSize(151,30);
-	        
-	        Button change_backgroundButton = new Button("Change                  \n background",new ImageView(new Image("file:./Images/Icons/Properties/Background.png")));
-	        change_backgroundButton.setMinSize(151,30);
-	        
-	        VBox propertiesContainer = new VBox();
-	        propertiesContainer.getChildren().addAll(change_backgroundButton,change_security_codeButton);
-	        propertiesContainer.setSpacing(8);
-	        
-	        
-//Navigation Properties.Change_background --------------------------------------------------------------------------------------------------------------------
-	        Label background_titleL = new Label("Change background");
-	        background_titleL.setStyle("-fx-font-size:21;-fx-text-fill: white");
-	        
-	        Button background1Button = new Button("Background 1");
-	        background1Button.setMinSize(130,35);
-	        Button background2Button = new Button("Background 2");
-	        background2Button.setMinSize(130,35);
-	        Button background3Button = new Button("Background 3");
-	        background3Button.setMinSize(130,35);
-	        
-	        VBox backgroundContainer = new VBox();
-	        backgroundContainer.getChildren().addAll(background_titleL,background1Button,background2Button,background3Button);
-	        backgroundContainer.setSpacing(8);
+//	        Button change_security_codeButton = new Button("Change                  \nsecurity code",new ImageView(new Image("file:./Images/Icons/Properties/Security_code.png")));
+//	        change_security_codeButton.setMinSize(151,30);
+//	        
+//	        Button change_backgroundButton = new Button("Change                  \n background",new ImageView(new Image("file:./Images/Icons/Properties/Background.png")));
+//	        change_backgroundButton.setMinSize(151,30);
+//	        
+//	        VBox propertiesContainer = new VBox();
+//	        propertiesContainer.getChildren().addAll(change_backgroundButton,change_security_codeButton);
+//	        propertiesContainer.setSpacing(8);
+//	        
+//	        
+////Navigation Properties.Change_background --------------------------------------------------------------------------------------------------------------------
+//	        Label background_titleL = new Label("Change background");
+//	        background_titleL.setStyle("-fx-font-size:21;-fx-text-fill: white");
+//	        
+//	        Button background1Button = new Button("Background 1");
+//	        background1Button.setMinSize(130,35);
+//	        Button background2Button = new Button("Background 2");
+//	        background2Button.setMinSize(130,35);
+//	        Button background3Button = new Button("Background 3");
+//	        background3Button.setMinSize(130,35);
+//	        
+//	        VBox backgroundContainer = new VBox();
+//	        backgroundContainer.getChildren().addAll(background_titleL,background1Button,background2Button,background3Button);
+//	        backgroundContainer.setSpacing(8);
 	        
 	        
 	        
 //Navigation Properties.Security_code --------------------------------------------------------------------------------------------------------------------
-	        Label change_security_codeL = new Label("Change security code");
-	        change_security_codeL.setStyle("-fx-font-size:21;-fx-text-fill: white");
-	        
-	        Label security_code_nowL = new Label("CURRENT security code*");
-	        security_code_nowL.setStyle("-fx-text-fill: white");
-	        properties_currentPF = new PasswordField();
-	        
-	        Label security_code_newL = new Label("NEW security code*");
-	        security_code_newL.setStyle("-fx-text-fill: white");
-	        properties_newPW = new PasswordField();
-	        
-	        Label security_code_new_repeatL = new Label("Repeat NEW security code*");
-	        security_code_new_repeatL.setStyle("-fx-text-fill: white");
-	        properties_repeat_newPF = new PasswordField();
-	        
-	        Button change_scButton = new Button("Change");
-	        
-	        
-	        GridPane security_codeContainer = new GridPane();
-	        security_codeContainer.add(change_security_codeL, 0, 0 ,2 ,1);
-	        security_codeContainer.add(security_code_nowL, 0, 1);
-	        security_codeContainer.add(properties_currentPF, 1, 1);
-	        security_codeContainer.add(security_code_newL, 0, 2);
-	        security_codeContainer.add(properties_newPW, 1, 2);
-	        security_codeContainer.add(security_code_new_repeatL, 0, 3);
-	        security_codeContainer.add(properties_repeat_newPF, 1, 3);
-	        security_codeContainer.add(change_scButton, 1, 4);
-	        security_codeContainer.setHgap(5);
-	        security_codeContainer.setVgap(8);
-	        
+//	        Label change_security_codeL = new Label("Change security code");
+//	        change_security_codeL.setStyle("-fx-font-size:21;-fx-text-fill: white");
+//	        
+//	        Label security_code_nowL = new Label("CURRENT security code*");
+//	        security_code_nowL.setStyle("-fx-text-fill: white");
+//	        properties_currentPF = new PasswordField();
+//	        
+//	        Label security_code_newL = new Label("NEW security code*");
+//	        security_code_newL.setStyle("-fx-text-fill: white");
+//	        properties_newPW = new PasswordField();
+//	        
+//	        Label security_code_new_repeatL = new Label("Repeat NEW security code*");
+//	        security_code_new_repeatL.setStyle("-fx-text-fill: white");
+//	        properties_repeat_newPF = new PasswordField();
+//	        
+//	        Button change_scButton = new Button("Change");
+//	        
+//	        
+//	        GridPane security_codeContainer = new GridPane();
+//	        security_codeContainer.add(change_security_codeL, 0, 0 ,2 ,1);
+//	        security_codeContainer.add(security_code_nowL, 0, 1);
+//	        security_codeContainer.add(properties_currentPF, 1, 1);
+//	        security_codeContainer.add(security_code_newL, 0, 2);
+//	        security_codeContainer.add(properties_newPW, 1, 2);
+//	        security_codeContainer.add(security_code_new_repeatL, 0, 3);
+//	        security_codeContainer.add(properties_repeat_newPF, 1, 3);
+//	        security_codeContainer.add(change_scButton, 1, 4);
+//	        security_codeContainer.setHgap(5);
+//	        security_codeContainer.setVgap(8);
+//	        
 	        
 	        
 //Navigation Informations * --------------------------------------------------------------------------------------------------------------------
-	        Button about_programButton = new Button("About program ",new ImageView(new Image("file:./Images/Icons/Informations/program.png")));
+	        Button about_programButton = new Button("O aplikacji ");
 	        about_programButton.setMinSize(151, 30);
 	        
-	        Button about_authorButton = new Button("About author   ",new ImageView(new Image("file:./Images/Icons/Informations/author.png")));
+	        Button about_authorButton = new Button("O nas   ");
 	        about_authorButton.setMinSize(151, 30);
 	        
 	        VBox informationsContainer = new VBox();
@@ -1146,34 +1147,11 @@ public class FrontEnd extends Application {
 	        
 	        
 //Navigation Informations.About_program --------------------------------------------------------------------------------------------------------------------
-	        Label about_programL = new Label("About program");
+	        Label about_programL = new Label("O aplikacji");
 	        about_programL.setStyle("-fx-font-size:21;-fx-text-fill: white");
 	        
 	        TextArea about_programTA = new TextArea();
-	        about_programTA.setText("This is movie rental system.\n"+
-"Owner of this program can make easy his job.\n\n"+
-"Program have 5 navigation buttons(Users,Movies,Rental,Properties,Informations) that have more sub buttons:\n\n"+
-"1)	User:\n"+
-"•	New user – Register new user\n"+
-"•	Show user – Show user details by ID;\n"+
-"•	Edit user – Edit user details by ID\n"+
-"•	Delete user – Delete user by ID\n"+
-"•	Show all users – Show organized list of all users \n\n"+
-"2)	Movies\n"+
-"•	Add movie – Add new movie\n"+
-"•	Find movie – Filtered finding movies by: ID,Title,Genre,Release year,Main actors.It possible to use one or more options for better search\n"+
-"•	Edit/Delete movie – Edit or Delete movie by ID\n"+
-"•	Show all movies – Show all movies in organized list\n\n"+
-"3)	Rental\n"+
-"•	Rental movie – Rental movie\n"+
-"•	Return back movie – Return back movie.\n"+
-"•	List of rental movies – Organizes list of rental movies.\n\n"+
-"4)	Properties\n"+
-"•	Change background - Change background of program \n"+
-"•	Change security code – Change security code\n\n"+
-"5)	Informations\n"+
-"•	About program – Show details about program\n"+
-"•	About author – Show details about author of this program\n");
+	        about_programTA.setText("");
 	        about_programTA.setMinSize(710, 400);
 	        about_programTA.setEditable(false);
 	        
@@ -1183,12 +1161,11 @@ public class FrontEnd extends Application {
 	        
 	        
 	        //Navigation Informations.About_author
-	        Label about_authorL = new Label("About author of this program");
+	        Label about_authorL = new Label("O nas");
 	        about_authorL.setStyle("-fx-font-size:21;-fx-text-fill: white");
 	        
 	        TextArea about_authorTA = new TextArea();
-	        about_authorTA.setText("Author of this program is Marko Kovacevic,student on first year of Informatics on \nHigh Technical college in Kragujevac city.\n\n"+
-	        					"For more informations you can contact him on email: markokovacevic97@gmail.com");
+	        about_authorTA.setText("Oleh Bukliv, Serhii Fedirko. Katolicki Uniwersytet Lubelski, 2019");
 	        about_authorTA.setMinSize(370, 150);
 	        about_authorTA.setEditable(false);
 	        
@@ -1201,8 +1178,8 @@ public class FrontEnd extends Application {
 	        
 			
 	 //Main container * -----------------------------------------------------------------------------------------------------------------------
-			VBox glavniKontejner = new VBox();
-			glavniKontejner.getChildren().addAll(navigation_mainContainer,navigationBody);
+			VBox mainContainer = new VBox();
+			mainContainer.getChildren().addAll(navigation_mainContainer,navigationBody);
 			
 			
 			
@@ -1400,45 +1377,45 @@ public class FrontEnd extends Application {
 			
 			
 //Navigation Properties --------------------------------------------------------------------------------------------------------------------
-			propertiesButton.setOnAction( e -> {
-				navigationBody.getChildren().remove(0);
-				navigationBody.getChildren().add(0,propertiesContainer);
-				try{
-					navigationBody.getChildren().remove(1);
-					}
-					catch(Exception r){
-					}
-			});
-			change_security_codeButton.setOnAction( e -> {
-				try{
-				navigationBody.getChildren().remove(1);
-				}catch(Exception p){}
-				navigationBody.getChildren().add(1,security_codeContainer);	
-			});
-			change_scButton.setOnAction( e -> object_Back.changeSecurityCode());
-			
-//Navigation Properties.Change_background --------------------------------------------------------------------------------------------------------------------
-			change_backgroundButton.setOnAction( e -> {
-				try{
-				navigationBody.getChildren().remove(1);
-				}catch(Exception p){}
-				navigationBody.getChildren().add(1,backgroundContainer);	
-			});
-			background1Button.setOnAction( e -> {
-				background="background1";
-				object_Back.changeBackground();
-				backgroundIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
-			});
-			background2Button.setOnAction( e -> {
-				background="background2";
-				object_Back.changeBackground();
-				backgroundIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
-			});
-			background3Button.setOnAction( e -> {
-				background="background3";
-				object_Back.changeBackground();
-				backgroundIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
-			});
+//			propertiesButton.setOnAction( e -> {
+//				navigationBody.getChildren().remove(0);
+//				navigationBody.getChildren().add(0,propertiesContainer);
+//				try{
+//					navigationBody.getChildren().remove(1);
+//					}
+//					catch(Exception r){
+//					}
+//			});
+//			change_security_codeButton.setOnAction( e -> {
+//				try{
+//				navigationBody.getChildren().remove(1);
+//				}catch(Exception p){}
+//				navigationBody.getChildren().add(1,security_codeContainer);	
+//			});
+//			change_scButton.setOnAction( e -> object_Back.changeSecurityCode());
+//			
+////Navigation Properties.Change_background --------------------------------------------------------------------------------------------------------------------
+//			change_backgroundButton.setOnAction( e -> {
+//				try{
+//				navigationBody.getChildren().remove(1);
+//				}catch(Exception p){}
+//				navigationBody.getChildren().add(1,backgroundContainer);	
+//			});
+//			background1Button.setOnAction( e -> {
+//				background="background1";
+//				object_Back.changeBackground();
+//				backgroundIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
+//			});
+//			background2Button.setOnAction( e -> {
+//				background="background2";
+//				object_Back.changeBackground();
+//				backgroundIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
+//			});
+//			background3Button.setOnAction( e -> {
+//				background="background3";
+//				object_Back.changeBackground();
+//				backgroundIW.setImage(new Image("file:./Images/Backgrounds/"+background+".jpg"));
+//			});
 			
 			
 			
@@ -1478,13 +1455,13 @@ public class FrontEnd extends Application {
 			
 			
 //Login page -------------------------------------------------------------------------------------------------------------------------------------			
-			Label security_codeL = new Label("Enter security code");
+			Label security_codeL = new Label("Wpisz kod zabezpieczający");
 			security_codeL.setStyle("-fx-font-size:20;-fx-text-fill: white");
 			
 			PasswordField security_codePF = new PasswordField();
 			security_codePF.setMaxWidth(190);
 			
-			Button security_codeButton = new Button("Launch");
+			Button security_codeButton = new Button("Wejdz");
 			
 			
 			HBox security_code_mContainer = new HBox();
@@ -1501,7 +1478,7 @@ public class FrontEnd extends Application {
 			
 
 			StackPane main_sceneContainer = new StackPane();
-			main_sceneContainer.getChildren().addAll(backgroundIW,glavniKontejner);
+			main_sceneContainer.getChildren().addAll(backgroundIW,mainContainer);
 			
 //Login Scene and Stage --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1510,7 +1487,7 @@ public class FrontEnd extends Application {
 			Scene mainScene = new Scene(main_sceneContainer,1000,535);
 			
 			startingStage.setScene(security_codeScene); 
-			startingStage.setTitle("Movie rental system");
+			startingStage.setTitle("Wypożyczalnia filmów");
 			startingStage.setResizable(false);
 			startingStage.getIcons().add(new Image("file:./Images/Icons/icon.png"));
 			startingStage.show();
@@ -1524,9 +1501,9 @@ public class FrontEnd extends Application {
 						startingStage.centerOnScreen();
 					}else{
 						Alert alert = new Alert(AlertType.WARNING);
-						alert.setTitle("Notification");
+						alert.setTitle("Uwaga");
 						alert.setHeaderText(null);
-						alert.setContentText("You entered wrong security code,please try again!");
+						alert.setContentText("Wpisałeś zły kod!");
 
 						alert.showAndWait();
 						
@@ -1541,9 +1518,9 @@ public class FrontEnd extends Application {
 					startingStage.centerOnScreen();
 				}else{
 					Alert alert = new Alert(AlertType.WARNING);
-					alert.setTitle("Notification");
+					alert.setTitle("Uwaga");
 					alert.setHeaderText(null);
-					alert.setContentText("You entered wrong security code,please try again!");
+					alert.setContentText("Wpisałeś zły kod!");
 
 					alert.showAndWait();
 				}
